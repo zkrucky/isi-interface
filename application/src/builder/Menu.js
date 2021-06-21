@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {Card, Accordion} from 'react-bootstrap';
 
+import Create from "../blocks/variables/Create";
+
 export default class Menu extends Component{
     render(){
         return(
@@ -51,7 +53,9 @@ export default class Menu extends Component{
                         VARIABLES
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="5">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <Create/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>

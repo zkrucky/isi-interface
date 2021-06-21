@@ -76,3 +76,11 @@ body
 {
     background-color: #ffffff;
 }
+
+/*variables*/
+
+.create
+{
+    background-color: #000000;
+    color: #ffffff !important;
+}
