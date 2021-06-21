@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Container, Button } from "reactstrap";
+import { Container } from "reactstrap";
 
 import logo from "../static/images/iroha.png";
 import "../static/styles/header.css";
