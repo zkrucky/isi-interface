@@ -3,14 +3,6 @@ import React, {Component} from 'react';
 import {Card, Accordion} from 'react-bootstrap';
 
 export default class Menu extends Component{
-    constructor(props){
-        super(props);
-
-        this.state = {
-            menuOpen: false
-        }
-    }
-
     render(){
         return(
             <Accordion>
