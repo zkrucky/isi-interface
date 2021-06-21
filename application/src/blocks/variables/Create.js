@@ -19,7 +19,7 @@ export default class Create extends Component{
         <Container className="create">
             <Row>
                 <Col>
-                    <p>CREATE</p>
+                    <p className="vertical-center">CREATE</p>
                 </Col>
                 <Col>
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -36,10 +36,13 @@ export default class Create extends Component{
                     </Dropdown>
                 </Col>
                 <Col>
-                    <p>NAMED</p>
+                    <p className="vertical-center">NAMED</p>
                 </Col>
                 <Col>
                     <Input placeholder="variable1" />
+                </Col>
+                <Col>
+                    <p className="vertical-center">X</p>
                 </Col>
             </Row>
         </Container>

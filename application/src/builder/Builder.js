@@ -8,7 +8,7 @@ export default class Builder extends Component{
     render() {
         return(
             <div className="base">
-                <Container className="builder">
+                <Container className="builder" fluid={true}>
                     <Row>
                         <Col className="instructions">
                             <p>INSTRUCTIONS</p>
