@@ -3,6 +3,7 @@ import {Collapse} from "reactstrap";
 
 import Banner from "./banner/Banner";
 import About from "./banner/About";
+import Builder from "./builder/Builder";
 
 export default class App extends Component {
 
@@ -21,6 +22,7 @@ export default class App extends Component {
       <>
         <Banner toggleAbout={this.toggleAbout}/>
         {this.renderAbout()}
+        <Builder/>
       </>
     );
   }

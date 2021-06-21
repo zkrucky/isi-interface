@@ -3,7 +3,7 @@
 body
 {
     font-family: 'Roboto', sans-serif;
-    background-color: #fb3122;
+    background-color: #fb3122 !important;
 }
 
 .vertical-center
@@ -19,7 +19,6 @@ body
 {
     background-color: #ffffff !important;
     height: 155px;
-    margin-bottom: 25px;
 }
 
 .logo
@@ -44,4 +43,36 @@ body
 {
     background-color: #ffffff !important;
     padding-left: 20px;
+}
+
+.about h2
+{
+    margin-top: 60px;
+}
+
+/*builder*/
+
+.base
+{
+    background-color: #fb3122;
+}
+
+.builder
+{
+    margin: 100px 0;
+}
+
+.instructions
+{
+    background-color:#fbebd8;
+}
+
+.workbench
+{
+    background-color: #fffaef;
+}
+
+.code
+{
+    background-color: #ffffff;
 }
