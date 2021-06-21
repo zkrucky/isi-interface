@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {Container, Row, Col} from "reactstrap";
 
+import Menu from "./Menu";
+
 export default class Builder extends Component{
     render() {
         return(
@@ -10,6 +12,7 @@ export default class Builder extends Component{
                     <Row>
                         <Col className="instructions">
                             <p>INSTRUCTIONS</p>
+                            <Menu/>
                         </Col>
                         <Col className="workbench">
                             <p>WORKBENCH</p>
