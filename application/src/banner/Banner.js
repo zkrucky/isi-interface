@@ -11,6 +11,7 @@ export default class Banner extends Component {
         return(
             <div className="full-width banner">
                 <div className="vertical-center">
+                    <Container>
                     <div className="vertical-center">
                         <a href={IROHA_URL} target="_blank">
                             <img className="logo" src={logo} alt="Iroha logo" />
@@ -19,6 +20,7 @@ export default class Banner extends Component {
                             <h1 className="title">ISI SMART CONTRACT BUILDER</h1>
                         </a>
                     </div>
+                    </Container>
                 </div>
             </div>
         );
