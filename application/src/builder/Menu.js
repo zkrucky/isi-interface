@@ -3,8 +3,18 @@ import React, {Component} from 'react';
 import {Card, Accordion} from 'react-bootstrap';
 
 import Create from "../blocks/variables/Create";
+import Mint from "../blocks/domain/Mint";
 
 export default class Menu extends Component{
+
+    constructor(props){
+        super(props);
+
+        this.state={
+            variables: []
+        }
+    }
+
     render(){
         return(
             <Accordion>
@@ -13,7 +23,9 @@ export default class Menu extends Component{
                         DOMAIN
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <Mint/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
