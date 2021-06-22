@@ -8,7 +8,11 @@ export default class Create extends Component{
 
         this.state = {
             dropdownName: "ACCOUNT",
-            dropdown: false
+            dropdown: false,
+            tempVariable: {
+                type: "",
+                name: ""
+            }
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -16,7 +20,7 @@ export default class Create extends Component{
 
     render() {
         return(
-        <Container className="create">
+        <Container className="block">
             <Row>
                 <Col>
                     <p className="vertical-center">CREATE</p>
@@ -27,11 +31,11 @@ export default class Create extends Component{
                             {this.state.dropdownName}
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem onClick={() => {this.setDropdownName("ACCOUNT")}}>ACCOUNT</DropdownItem>
-                            <DropdownItem onClick={() => {this.setDropdownName("DOMAIN")}}>DOMAIN</DropdownItem>
-                            <DropdownItem onClick={() => {this.setDropdownName("PEER")}}>PEER</DropdownItem>
-                            <DropdownItem onClick={() => {this.setDropdownName("ASSET")}}>ASSET</DropdownItem>
-                            <DropdownItem onClick={() => {this.setDropdownName("SIGNATORY")}}>SIGNATORY</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("ACCOUNT"); this.setVariableType("account")}}>ACCOUNT</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("DOMAIN"); this.setVariableType("domain")}}>DOMAIN</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("PEER"); this.setVariableType("peer")}}>PEER</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("ASSET"); this.setVariableType("asset")}}>ASSET</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("SIGNATORY"); this.setVariableType("signatory")}}>SIGNATORY</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
@@ -39,7 +43,7 @@ export default class Create extends Component{
                     <p className="vertical-center">NAMED</p>
                 </Col>
                 <Col>
-                    <Input placeholder="variable1" />
+                    <Input placeholder="variable1" onChange={this.processNameInput} value={this.state.tempVariable.name}/>
                 </Col>
                 <Col>
                     <p className="vertical-center">X</p>
@@ -55,5 +59,15 @@ export default class Create extends Component{
 
     setDropdownName(name){
         this.setState({dropdownName: name});
+    }
+
+    setVariableType(type){
+        this.setState({tempVariable: {type: type}});
+    }
+
+    processNameInput(onChangeEvent){
+        const input = onChangeEvent.target.value;
+        let name = input;
+        this.setState({tempVariable: {name: name}});
     }
 }
