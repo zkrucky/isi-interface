@@ -79,9 +79,9 @@ body
     background-color: #ffffff;
 }
 
-/*variables*/
+/*blocks*/
 
-.create
+.block
 {
     background-color: #000000;
     color: #ffffff !important;
