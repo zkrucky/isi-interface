@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Card, Accordion} from 'react-bootstrap';
 
-import Create from "../blocks/variables/Create";
+import Register from "../blocks/domain/Register";
 import Mint from "../blocks/domain/Mint";
 
 export default class Menu extends Component{
@@ -24,6 +24,7 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
+                            <Register/>
                             <Mint/>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -65,9 +66,7 @@ export default class Menu extends Component{
                         VARIABLES
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="5">
-                        <Card.Body>
-                            <Create/>
-                        </Card.Body>
+                        <Card.Body>test</Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>

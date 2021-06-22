@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
-export default class Create extends Component{
+export default class Register extends Component{
     constructor(props){
         super(props);
 
@@ -23,7 +23,7 @@ export default class Create extends Component{
         <Container className="block">
             <Row>
                 <Col>
-                    <p className="vertical-center">CREATE</p>
+                    <p className="vertical-center">REGISTER</p>
                 </Col>
                 <Col>
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
