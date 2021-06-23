@@ -17,7 +17,9 @@ export default class Builder extends Component{
                         <Col className="workbench">
                             <p>WORKBENCH</p>
                         </Col>
-                        <Col className="code">
+                    </Row>
+                    <Row>
+                    <Col className="code">
                             <p>CODE</p>
                         </Col>
                     </Row>
