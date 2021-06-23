@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 
 import {Card, Accordion} from 'react-bootstrap';
 
-import Register from "../blocks/domain/RegisterAccount";
+import RegisterAccount from "../blocks/domain/RegisterAccount";
+import RegisterAsset from "../blocks/domain/RegisterAsset";
 import Unregister from "../blocks/domain/Unregister";
-import Mint from "../blocks/domain/Mint";
+import MintAsset from "../blocks/asset/MintAsset";
+import MintAccount from "../blocks/account/MintAccount";
+import Grant from "../blocks/account/Grant";
+import Transfer from "../blocks/asset/Transfer";
+import RegisterDomain from "../blocks/world/RegisterDomain";
 
 export default class Menu extends Component{
 
@@ -25,9 +30,8 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            <Register/>
+                            <RegisterDomain/>
                             <Unregister/>
-                            <Mint/>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
@@ -36,7 +40,11 @@ export default class Menu extends Component{
                         DOMAIN
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <RegisterAccount/>
+                            <RegisterAsset/>
+                            <Unregister/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
@@ -44,7 +52,10 @@ export default class Menu extends Component{
                         ACCOUNT
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="2">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <MintAccount/>
+                            <Grant/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
@@ -52,7 +63,10 @@ export default class Menu extends Component{
                         ASSET
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="4">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <MintAsset/>
+                            <Transfer/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
                 <Card>
