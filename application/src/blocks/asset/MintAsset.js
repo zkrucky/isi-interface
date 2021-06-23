@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
-export default class Mint extends Component{
+export default class MintAsset extends Component{
     constructor(props){
         super(props);
 
