@@ -11,16 +11,16 @@ export default class Builder extends Component{
                 <Container className="builder" fluid={true}>
                     <Row>
                         <Col className="instructions">
-                            <p>INSTRUCTIONS</p>
+                            <p className="section-title">INSTRUCTIONS</p>
                             <Menu/>
                         </Col>
                         <Col className="workbench">
-                            <p>WORKBENCH</p>
+                            <p className="section-title">WORKBENCH</p>
                         </Col>
                     </Row>
                     <Row>
                     <Col className="code">
-                            <p>CODE</p>
+                            <p className="section-title">CODE</p>
                         </Col>
                     </Row>
                 </Container>

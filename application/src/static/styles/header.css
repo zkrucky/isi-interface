@@ -63,6 +63,12 @@ body
     width: 75% !important;
 }
 
+.section-title
+{
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .instructions
 {
     background-color:#fbebd8;
@@ -88,5 +94,17 @@ body
     padding: 10px 0;
     margin: 10px 0;
     border-radius: 10px;
+    width: fit-content !important;
+    float: left;
+}
+
+.block-component
+{
+    width: fit-content !important;
+}
+
+.block p
+{
+    font-weight: bold;
 }
 
