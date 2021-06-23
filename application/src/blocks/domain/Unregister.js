@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class Unregister extends Component{
     constructor(props){
@@ -30,6 +30,7 @@ export default class Unregister extends Component{
                             <DropdownItem onClick={() => {this.setDropdownName("DOMAIN")}}>DOMAIN</DropdownItem>
                             <DropdownItem onClick={() => {this.setDropdownName("ACCOUNT")}}>ACCOUNT</DropdownItem>
                             <DropdownItem onClick={() => {this.setDropdownName("ASSET")}}>ASSET</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("ROLE")}}>ROLE</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Col>

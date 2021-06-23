@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
-export default class RegisterAccount extends Component{
+export default class RegisterAsset extends Component{
     constructor(props){
         super(props);
 
@@ -33,7 +33,7 @@ export default class RegisterAccount extends Component{
                     <p className="vertical-center">TO</p>
                 </Col>
                 <Col>
-                    <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
+                    <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             DOMAIN
                         </DropdownToggle>

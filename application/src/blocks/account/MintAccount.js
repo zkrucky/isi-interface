@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
-export default class MintAsset extends Component{
+export default class MintAccount extends Component{
     constructor(props){
         super(props);
 
@@ -11,7 +11,8 @@ export default class MintAsset extends Component{
             dropdown2: false,
             dropdown3: false,
             mintOrBurn: "MINT",
-            toOrFrom: "TO"
+            toOrFrom: "TO",
+            dropdownName: "PUBLICKEY"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -37,11 +38,11 @@ export default class MintAsset extends Component{
                 <Col>
                     <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                         <DropdownToggle caret>
-                            PUBLICKEY
+                            {this.state.dropdownName}
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem>PUBLICKEY</DropdownItem>
-                            <DropdownItem>SIGNATURECHECKCONDITION</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("PUBLICKEY")}}>PUBLICKEY</DropdownItem>
+                            <DropdownItem onClick={() => {this.setDropdownName("SIGNATURECHECKCONDITION")}}>SIGNATURECHECKCONDITION</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
@@ -84,5 +85,9 @@ export default class MintAsset extends Component{
 
     setToOrFrom(toOrFrom){
         this.setState({toOrFrom: toOrFrom});
+    }
+
+    setDropdownName(name){
+        this.setState({dropdownName: name});
     }
 }

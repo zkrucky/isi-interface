@@ -42,7 +42,7 @@ export default class RegisterAccount extends Component{
                     <p className="vertical-center">TO</p>
                 </Col>
                 <Col>
-                    <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
+                    <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             DOMAIN
                         </DropdownToggle>
