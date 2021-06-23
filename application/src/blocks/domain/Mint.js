@@ -9,13 +9,14 @@ export default class Mint extends Component{
         this.state = {
             dropdown: false,
             dropdown2: false,
+            dropdown3: false,
             mintOrBurn: "MINT",
-            toOrFrom: "to",
-            amount: 0
+            toOrFrom: "to"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.toggleSecondDropdown = this.toggleSecondDropdown.bind(this);
+        this.toggleThirdDropdown = this.toggleThirdDropdown.bind(this);
     }
 
     render() {
@@ -34,13 +35,26 @@ export default class Mint extends Component{
                     </Dropdown>
                 </Col>
                 <Col>
-                    <Input placeholder="0" onChange={this.processAmountInput} value={this.state.amount}/>
+                    <Input placeholder="0"/>
                 </Col>
                 <Col>
                     <p className="vertical-center">{this.state.toOrFrom}</p>
                 </Col>
                 <Col>
                     <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
+                        <DropdownToggle caret>
+                            ASSET
+                        </DropdownToggle>
+                        <DropdownMenu>
+                            <DropdownItem>ASSET</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </Col>
+                <Col>
+                    <p className="vertical-center">IN</p>
+                </Col>
+                <Col>
+                    <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
                         <DropdownToggle caret>
                             ACCOUNT
                         </DropdownToggle>
@@ -65,17 +79,15 @@ export default class Mint extends Component{
         this.setState({dropdown2: !this.state.dropdown2});
     }
 
+    toggleThirdDropdown(){
+        this.setState({dropdown3: !this.state.dropdown3});
+    }
+
     setMintOrBurn(mintOrBurn){
         this.setState({mintOrBurn: mintOrBurn});
     }
 
     setToOrFrom(toOrFrom){
         this.setState({toOrFrom: toOrFrom});
-    }
-
-    processAmountInput(onChangeEvent){
-        const tempAmount = onChangeEvent.target.value;
-        let amount = tempAmount;
-        this.setState({amount: amount});
     }
 }
