@@ -30,6 +30,15 @@ export default class RegisterAccount extends Component{
                     <Input placeholder="account1"/>
                 </Col>
                 <Col>
+                    <p className="vertical-center">AND</p>
+                </Col>
+                <Col>
+                    <p className="vertical-center">KEY</p>
+                </Col>
+                <Col>
+                    <Input placeholder="key"/>
+                </Col>
+                <Col>
                     <p className="vertical-center">TO</p>
                 </Col>
                 <Col>
