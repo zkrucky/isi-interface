@@ -20,10 +20,10 @@ export default class Grant extends Component{
         return(
         <Container className="block">
             <Row>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">GRANT</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             {this.state.dropdownName}
@@ -34,10 +34,10 @@ export default class Grant extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">TO</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                         <DropdownToggle caret>
                             ACCOUNT
@@ -47,7 +47,7 @@ export default class Grant extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">X</p>
                 </Col>
             </Row>

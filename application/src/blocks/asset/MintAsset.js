@@ -11,7 +11,7 @@ export default class MintAsset extends Component{
             dropdown2: false,
             dropdown3: false,
             mintOrBurn: "MINT",
-            toOrFrom: "to"
+            toOrFrom: "TO"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -23,7 +23,7 @@ export default class MintAsset extends Component{
         return(
         <Container className="block">
             <Row>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             {this.state.mintOrBurn}
@@ -34,13 +34,13 @@ export default class MintAsset extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Input placeholder="0"/>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">{this.state.toOrFrom}</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                         <DropdownToggle caret>
                             ASSET
@@ -50,10 +50,10 @@ export default class MintAsset extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">IN</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
                         <DropdownToggle caret>
                             ACCOUNT
@@ -63,7 +63,7 @@ export default class MintAsset extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">X</p>
                 </Col>
             </Row>

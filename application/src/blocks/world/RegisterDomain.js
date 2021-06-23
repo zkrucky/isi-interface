@@ -18,10 +18,10 @@ export default class RegisterAsset extends Component{
         return(
         <Container className="block">
             <Row>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">REGISTER</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             {this.state.dropdownName}
@@ -33,13 +33,13 @@ export default class RegisterAsset extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">NAMED</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Input placeholder="variable1"/>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">X</p>
                 </Col>
             </Row>

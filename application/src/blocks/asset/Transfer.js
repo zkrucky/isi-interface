@@ -20,16 +20,16 @@ export default class Transfer extends Component{
         return(
         <Container className="block">
             <Row>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">TRANSFER</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Input placeholder="0"/>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">FROM</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                         <DropdownToggle caret>
                             ACCOUNT
@@ -39,10 +39,10 @@ export default class Transfer extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">TO</p>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                         <DropdownToggle caret>
                             ACCOUNT
@@ -52,7 +52,7 @@ export default class Transfer extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col>
+                <Col className="block-component">
                     <p className="vertical-center">X</p>
                 </Col>
             </Row>
