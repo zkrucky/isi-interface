@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Button, Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class RegisterAsset extends Component{
     constructor(props){
@@ -23,11 +23,8 @@ export default class RegisterAsset extends Component{
                 <Col className="block-component">
                     <p className="vertical-center">ASSET</p>
                 </Col>
-                <Col>
-                    <p className="vertical-center">NAMED</p>
-                </Col>
                 <Col className="block-component">
-                    <Input placeholder="asset1"/>
+                    <Input placeholder="name"/>
                 </Col>
                 <Col className="block-component">
                     <p className="vertical-center">TO</p>
@@ -43,7 +40,7 @@ export default class RegisterAsset extends Component{
                     </Dropdown>
                 </Col>
                 <Col className="block-component">
-                    <p className="vertical-center">X</p>
+                    <Button color="danger">X</Button>
                 </Col>
             </Row>
         </Container>

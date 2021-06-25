@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Button, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class MintAccount extends Component{
     constructor(props){
@@ -60,7 +60,7 @@ export default class MintAccount extends Component{
                     </Dropdown>
                 </Col>
                 <Col className="block-component">
-                    <p className="vertical-center">X</p>
+                    <Button color="danger">X</Button>
                 </Col>
             </Row>
         </Container>

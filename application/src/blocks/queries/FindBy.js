@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Button, Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class FindAll extends Component{
     constructor(props){
@@ -66,7 +66,7 @@ export default class FindAll extends Component{
                     <Input/>
                 </Col>
                 <Col className="block-component">
-                    <p className="vertical-center">X</p>
+                    <Button color="danger">X</Button>
                 </Col>
             </Row>
         </Container>
