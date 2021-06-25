@@ -10,6 +10,8 @@ import MintAccount from "../blocks/account/MintAccount";
 import Grant from "../blocks/account/Grant";
 import Transfer from "../blocks/asset/Transfer";
 import RegisterDomain from "../blocks/world/RegisterDomain";
+import FindAll from "../blocks/queries/FindAll";
+import FindBy from "../blocks/queries/FindBy";
 
 export default class Menu extends Component{
 
@@ -74,7 +76,10 @@ export default class Menu extends Component{
                         QUERIES
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="6">
-                        <Card.Body>test</Card.Body>
+                        <Card.Body>
+                            <FindBy/>
+                            <FindAll/>
+                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
             </Accordion>
