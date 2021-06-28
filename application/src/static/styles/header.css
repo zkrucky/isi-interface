@@ -108,3 +108,9 @@ body
     font-weight: bold;
 }
 
+.working-block
+{
+    padding-left: 15px;
+    float: left;
+}
+
