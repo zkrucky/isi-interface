@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Button, Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
-export default class RegisterAsset extends Component{
+export default class RegisterDomain extends Component{
     constructor(props){
         super(props);
 
@@ -18,6 +18,9 @@ export default class RegisterAsset extends Component{
         return(
         <Container className="block">
             <Row>
+                <Col>
+                    <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterDomain)}}>+</Button>
+                </Col>
                 <Col className="block-component">
                     <p className="vertical-center">REGISTER</p>
                 </Col>
@@ -37,7 +40,7 @@ export default class RegisterAsset extends Component{
                     <Input placeholder="name"/>
                 </Col>
                 <Col className="block-component">
-                    <Button color="danger">X</Button>
+                    <Button color="danger" onClick={() => {this.props.removeWorkingBlock(this.props.index)}}>X</Button>
                 </Col>
             </Row>
         </Container>

@@ -32,8 +32,8 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            <RegisterDomain/>
-                            <Unregister/>
+                            <RegisterDomain addWorkingBlock={this.props.addWorkingBlock}/>
+                            <Unregister addWorkingBlock={this.props.addWorkingBlock}/>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

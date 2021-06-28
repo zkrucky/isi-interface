@@ -8,9 +8,16 @@ import Menu from "./Menu";
 import Workbench from "./Workbench";
 
 export default class Builder extends Component{
-    onDragEnd = result => {
-        //TODO
-    };
+    constructor(props){
+        super(props);
+
+        this.state = {
+            workingBlocks: []
+        }
+
+        this.addWorkingBlock = this.addWorkingBlock.bind(this);
+        this.removeWorkingBlock = this.removeWorkingBlock.bind(this);
+    }
 
     render() {
         return(
@@ -20,11 +27,11 @@ export default class Builder extends Component{
                         <Row>
                             <Col className="instructions">
                                 <p className="section-title">INSTRUCTIONS</p>
-                                <Menu/>
+                                <Menu addWorkingBlock={this.addWorkingBlock} removeWorkingBlock={this.removeWorkingBlock}/>
                             </Col>
                             <Col className="workbench">
                                 <p className="section-title">WORKBENCH</p>
-                                <Workbench/>
+                                <Workbench workingBlocks={this.state.workingBlocks}/>
                             </Col>
                         </Row>
                     </DragDropContext>
@@ -36,5 +43,18 @@ export default class Builder extends Component{
                 </Container>
             </div>
         );
+    }
+
+    addWorkingBlock(block){
+        let blocks = this.state.workingBlocks;
+        blocks.push(block);
+        this.setState({workingBlocks: blocks});
+        console.log(this.state.workingBlocks);
+    }
+
+    removeWorkingBlock(index){
+        let blocks = this.state.workingBlocks;
+        blocks.splice(index, 1);
+        this.setState({workingBlocks: blocks});
     }
 }

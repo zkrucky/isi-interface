@@ -18,6 +18,9 @@ export default class Unregister extends Component{
         return(
             <Container className="block">
             <Row>
+                <Col>
+                    <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
+                </Col>
                 <Col className="block-component">
                     <p className="vertical-center">UNREGISTER</p>
                 </Col>
