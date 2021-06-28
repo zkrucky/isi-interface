@@ -33,7 +33,7 @@ export default class FindAll extends Component{
                 byBlock = this.renderAccount();
                 break;
             case "ASSETS":
-                byBlock = <p className="vertical-center">ID:</p>
+                byBlock = this.renderAsset();
                 break;
         }
         return(
@@ -99,6 +99,25 @@ export default class FindAll extends Component{
                     <DropdownMenu>
                         <DropdownItem onClick={() => {this.setSecondDropdownName("ID")}}>ID</DropdownItem>
                         <DropdownItem onClick={() => {this.setSecondDropdownName("NAME")}}>NAME</DropdownItem>
+                        <DropdownItem onClick={() => {this.setSecondDropdownName("DOMAINNAME")}}>DOMAINNAME</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </>
+        );
+    }
+
+    renderAsset(){
+        return(
+            <>
+                <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
+                    <DropdownToggle caret>
+                        {this.state.dropdownName2}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem onClick={() => {this.setSecondDropdownName("ID")}}>ID</DropdownItem>
+                        <DropdownItem onClick={() => {this.setSecondDropdownName("NAME")}}>NAME</DropdownItem>
+                        <DropdownItem onClick={() => {this.setSecondDropdownName("ACCOUNTID")}}>ACCOUNTID</DropdownItem>
+                        <DropdownItem onClick={() => {this.setSecondDropdownName("ASSETDEFINITIONID")}}>ASSETDEFINITIONID</DropdownItem>
                         <DropdownItem onClick={() => {this.setSecondDropdownName("DOMAINNAME")}}>DOMAINNAME</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
