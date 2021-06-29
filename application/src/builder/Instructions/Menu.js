@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 
-import {Card, Accordion} from 'react-bootstrap';
+import {Button, Card, Accordion} from 'react-bootstrap';
 
-import RegisterAccount from "../blocks/domain/RegisterAccount";
-import RegisterAsset from "../blocks/domain/RegisterAsset";
-import Unregister from "../blocks/domain/Unregister";
-import MintAsset from "../blocks/asset/MintAsset";
-import MintAccount from "../blocks/account/MintAccount";
-import Grant from "../blocks/account/Grant";
-import Transfer from "../blocks/asset/Transfer";
-import RegisterDomain from "../blocks/world/RegisterDomain";
-import FindAll from "../blocks/queries/FindAll";
-import FindBy from "../blocks/queries/FindBy";
+import RegisterAccount from "../../blocks/domain/RegisterAccount";
+import RegisterAsset from "../../blocks/domain/RegisterAsset";
+import Unregister from "../../blocks/domain/Unregister";
+import MintAsset from "../../blocks/asset/MintAsset";
+import MintAccount from "../../blocks/account/MintAccount";
+import Grant from "../../blocks/account/Grant";
+import Transfer from "../../blocks/asset/Transfer";
+import RegisterDomain from "../../blocks/world/RegisterDomain";
+import FindAll from "../../blocks/queries/FindAll";
+import FindBy from "../../blocks/queries/FindBy";
 
 export default class Menu extends Component{
 
@@ -19,7 +19,8 @@ export default class Menu extends Component{
         super(props);
 
         this.state={
-            variables: []
+            variables: [],
+            isWorkingBlock: false
         }
     }
 
@@ -32,7 +33,7 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
-                            <RegisterDomain addWorkingBlock={this.props.addWorkingBlock}/>
+                            <RegisterDomain addWorkingBlock={this.props.addWorkingBlock} isWorkingBlock={this.state.isWorkingBlock} setIsWorkingBlock={this.props.setIsWorkingBlock}/>
                             <Unregister addWorkingBlock={this.props.addWorkingBlock}/>
                         </Card.Body>
                     </Accordion.Collapse>
