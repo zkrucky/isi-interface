@@ -4,8 +4,8 @@ import {Container, Row, Col} from "reactstrap";
 
 import{DragDropContext} from "react-beautiful-dnd";
 
-import Menu from "./Menu";
-import Workbench from "./Workbench";
+import Menu from "./Instructions/Menu";
+import Workbench from "./Workbench/Workbench";
 
 export default class Builder extends Component{
     constructor(props){
@@ -27,11 +27,11 @@ export default class Builder extends Component{
                         <Row>
                             <Col className="instructions">
                                 <p className="section-title">INSTRUCTIONS</p>
-                                <Menu addWorkingBlock={this.addWorkingBlock} removeWorkingBlock={this.removeWorkingBlock}/>
+                                <Menu addWorkingBlock={this.addWorkingBlock}/>
                             </Col>
                             <Col className="workbench">
                                 <p className="section-title">WORKBENCH</p>
-                                <Workbench workingBlocks={this.state.workingBlocks}/>
+                                <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock}/>
                             </Col>
                         </Row>
                     </DragDropContext>
