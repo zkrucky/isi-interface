@@ -18,9 +18,6 @@ export default class RegisterDomain extends Component{
         return(
         <Container className="block">
             <Row>
-                <Col>
-                    <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterDomain)}}>+</Button>
-                </Col>
                 <Col className="block-component">
                     <p className="vertical-center">REGISTER</p>
                 </Col>
@@ -38,9 +35,6 @@ export default class RegisterDomain extends Component{
                 </Col>
                 <Col className="block-component">
                     <Input placeholder="name"/>
-                </Col>
-                <Col className="block-component">
-                    <Button color="danger" onClick={() => {this.props.removeWorkingBlock(this.props.index)}}>X</Button>
                 </Col>
             </Row>
         </Container>

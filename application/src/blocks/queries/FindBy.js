@@ -65,9 +65,6 @@ export default class FindBy extends Component{
                 <Col className="block-component">  
                     <Input/>
                 </Col>
-                <Col className="block-component">
-                    <Button color="danger">X</Button>
-                </Col>
             </Row>
         </Container>
         );

@@ -18,9 +18,6 @@ export default class Unregister extends Component{
         return(
             <Container className="block">
             <Row>
-                <Col>
-                    <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
-                </Col>
                 <Col className="block-component">
                     <p className="vertical-center">UNREGISTER</p>
                 </Col>
@@ -36,9 +33,6 @@ export default class Unregister extends Component{
                             <DropdownItem onClick={() => {this.setDropdownName("ROLE")}}>ROLE</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                </Col>
-                <Col className="block-component">
-                    <Button color="danger">X</Button>
                 </Col>
             </Row>
         </Container>

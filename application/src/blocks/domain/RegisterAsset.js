@@ -39,9 +39,6 @@ export default class RegisterAsset extends Component{
                         </DropdownMenu>
                     </Dropdown>
                 </Col>
-                <Col className="block-component">
-                    <Button color="danger">X</Button>
-                </Col>
             </Row>
         </Container>
         );
