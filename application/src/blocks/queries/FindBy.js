@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Button, Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Input, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class FindBy extends Component{
     constructor(props){

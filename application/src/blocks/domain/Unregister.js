@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Button, Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class Unregister extends Component{
     constructor(props){

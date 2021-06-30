@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button} from "reactstrap";
+import {Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 export default class Grant extends Component{
     constructor(props){
