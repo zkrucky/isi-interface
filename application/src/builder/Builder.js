@@ -17,6 +17,7 @@ export default class Builder extends Component{
 
         this.addWorkingBlock = this.addWorkingBlock.bind(this);
         this.removeWorkingBlock = this.removeWorkingBlock.bind(this);
+        this.clearBlocks = this.clearBlocks.bind(this);
     }
 
     render() {
@@ -31,7 +32,7 @@ export default class Builder extends Component{
                             </Col>
                             <Col className="workbench">
                                 <p className="section-title">WORKBENCH</p>
-                                <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock}/>
+                                <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks}/>
                             </Col>
                         </Row>
                     </DragDropContext>
@@ -56,5 +57,9 @@ export default class Builder extends Component{
         let blocks = this.state.workingBlocks;
         blocks.splice(index, 1);
         this.setState({workingBlocks: blocks});
+    }
+
+    clearBlocks(){
+        this.setState({workingBlocks: []});
     }
 }
