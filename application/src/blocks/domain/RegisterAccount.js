@@ -8,6 +8,13 @@ export default class RegisterAccount extends Component{
 
         this.state = {
             dropdown: false,
+            tempName: "",
+            accountID: {
+                accountName: "",
+                domainName: ""
+            },
+            accountKey: "",
+            accountAssets: []
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);

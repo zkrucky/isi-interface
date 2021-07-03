@@ -5,6 +5,13 @@ import {Container, Button, Row, Col} from 'reactstrap';
 export default class WorkingBlocks extends Component{
     constructor(props){
         super(props);
+
+        this.state = {
+            activeDomains: [],
+            activeAccounts: [],
+            activeAssets: []
+        }
+
         this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
         this.blockElement = React.createRef();   
@@ -18,7 +25,7 @@ export default class WorkingBlocks extends Component{
                         <Button color="danger" onClick={() => {this.props.removeWorkingBlock(index)}}>X</Button>
                     </Col>
                     <Col>
-                        <Block/>
+                        <Block activeDomains={this.state.activeDomains} index={index}/>
                     </Col>
                 </Row>
             </Container>

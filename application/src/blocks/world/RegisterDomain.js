@@ -8,10 +8,14 @@ export default class RegisterDomain extends Component{
 
         this.state = {
             dropdown: false,
-            dropdownName: "DOMAIN"
+            dropdownName: "DOMAIN",
+            domainName: "",
+            peerName: "",
+            roleName: "",
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.processName = this.processName.bind(this);
     }
 
     render() {
@@ -34,7 +38,7 @@ export default class RegisterDomain extends Component{
                     </Dropdown>
                 </Col>
                 <Col className="block-component">
-                    <Input placeholder="name"/>
+                    <Input placeholder="name" onChange={this.processName}/>
                 </Col>
             </Row>
         </Container>
@@ -47,5 +51,11 @@ export default class RegisterDomain extends Component{
 
     setDropdownName(name){
         this.setState({dropdownName: name});
+    }
+
+    processName(onChangeEvent){
+        const input = onChangeEvent.target.value;
+        let name = input;
+        this.setState({domainName: name});
     }
 }

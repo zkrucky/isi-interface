@@ -8,9 +8,12 @@ export default class RegisterAsset extends Component{
 
         this.state = {
             dropdown: false,
+            assetName: "",
+            assetValue: 0
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.processName = this.processName.bind(this);
     }
 
     render() {
@@ -24,7 +27,7 @@ export default class RegisterAsset extends Component{
                     <p className="vertical-center">ASSET</p>
                 </Col>
                 <Col className="block-component">
-                    <Input placeholder="name"/>
+                    <Input placeholder="name" onChange={this.processName}/>
                 </Col>
                 <Col className="block-component">
                     <p className="vertical-center">TO</p>
@@ -50,5 +53,12 @@ export default class RegisterAsset extends Component{
 
     setDropdownName(name){
         this.setState({dropdownName: name});
+    }
+
+    processName(onChangeEvent){
+        const input = onChangeEvent.target.value;
+        let name = input;
+        this.setState({assetName: name});
+        console.log(this.state.assetName);
     }
 }
