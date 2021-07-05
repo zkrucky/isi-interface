@@ -24,7 +24,7 @@ export default class Builder extends Component{
         return(
             <div className="base">
                 <Container className="builder" fluid={true}>
-                    <DragDropContext onDragEnd={this.onDragEnd}>
+                    <DragDropContext>
                         <Row>
                             <Col className="instructions">
                                 <p className="section-title">INSTRUCTIONS</p>
