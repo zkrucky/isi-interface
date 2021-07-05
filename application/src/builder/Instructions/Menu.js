@@ -39,7 +39,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterDomain)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterDomain/>
+                                        <RegisterDomain isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -49,7 +49,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister/>
+                                        <Unregister isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -68,7 +68,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterAccount)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAccount/>
+                                        <RegisterAccount isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -78,7 +78,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterAsset)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAsset/>
+                                        <RegisterAsset isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -88,7 +88,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister/>
+                                        <Unregister isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -107,7 +107,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(MintAccount)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAccount/>
+                                        <MintAccount isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -117,7 +117,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(Grant)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Grant/>
+                                        <Grant isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -136,7 +136,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(MintAsset)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAsset/>
+                                        <MintAsset isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -146,7 +146,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(Transfer)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Transfer/>
+                                        <Transfer isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -165,7 +165,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(FindBy)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <FindBy/>
+                                        <FindBy isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -175,7 +175,7 @@ export default class Menu extends Component{
                                         <Button color="primary" onClick={() => {this.props.addWorkingBlock(FindAll)}}>+</Button>
                                     </Col>
                                     <Col>
-                                        <FindAll/>
+                                        <FindAll isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>

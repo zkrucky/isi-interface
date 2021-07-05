@@ -25,7 +25,7 @@ export default class WorkingBlocks extends Component{
                         <Button color="danger" onClick={() => {this.props.removeWorkingBlock(index)}}>X</Button>
                     </Col>
                     <Col>
-                        <Block activeDomains={this.state.activeDomains} index={index}/>
+                        <Block activeDomains={this.state.activeDomains} index={index} isWorkingBlock={true}/>
                     </Col>
                 </Row>
             </Container>
