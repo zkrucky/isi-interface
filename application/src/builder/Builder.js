@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {Container, Row, Col} from "reactstrap";
 
-import{DragDropContext} from "react-beautiful-dnd";
+import{DragDropContext, Droppable} from "react-beautiful-dnd";
 
 import Menu from "./Instructions/Menu";
 import Workbench from "./Workbench/Workbench";
@@ -24,18 +24,22 @@ export default class Builder extends Component{
         return(
             <div className="base">
                 <Container className="builder" fluid={true}>
-                    <DragDropContext>
                         <Row>
                             <Col className="instructions">
                                 <p className="section-title">INSTRUCTIONS</p>
                                 <Menu addWorkingBlock={this.addWorkingBlock}/>
                             </Col>
-                            <Col className="workbench">
-                                <p className="section-title">WORKBENCH</p>
-                                <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks}/>
-                            </Col>
+                            <DragDropContext>
+                                <Droppable droppableId="working-blocks">
+                                    {(provided) => (
+                                        <Col className="workbench working-blocks" {...provided.droppableProps} ref={provided.innerRef}>
+                                            <p className="section-title">WORKBENCH</p>
+                                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks}/>
+                                        </Col>
+                                    )}
+                                </Droppable>
+                            </DragDropContext>
                         </Row>
-                    </DragDropContext>
                     <Row>
                     <Col className="code">
                             <p className="section-title">CODE</p>

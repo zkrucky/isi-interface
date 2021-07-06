@@ -11,10 +11,10 @@ export default class WorkingBlocks extends Component{
         this.state = {
             activeDomains: [],
             activeAccounts: [],
-            activeAssets: []
+            activeAssets: [],
+            currentKey: ''
         }
 
-        this.keyCount = 0;
         this.getKey = this.getKey.bind(this);
         this.blockElement = React.createRef();   
     }
@@ -23,9 +23,9 @@ export default class WorkingBlocks extends Component{
         return(
             this.props.workingBlocks.map((Block, index) => {
                 return(
-                    <Draggable key={this.getKey} draggableId={this.geKey} index={index}>
+                    <Draggable key={this.getKey(5)} draggableId={this.state.currentKey} index={index}>
                         {(provided) => (
-                            <Container key={this.getKey} {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                            <Container {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
                                         <Button color="danger" onClick={() => {this.props.removeWorkingBlock(index)}}>X</Button>
@@ -42,7 +42,14 @@ export default class WorkingBlocks extends Component{
         );
     }
 
-    getKey(){
-        return this.keyCount++;
+    getKey(length){
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for(var i = 0; i < length; i++){
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        this.setState({currentKey: result});
+        return result;
     }
 }
