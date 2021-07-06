@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 
 export default class About extends Component {

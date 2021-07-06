@@ -1,31 +1,58 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Button, Card, Accordion, Container, Row, Col} from 'react-bootstrap';
+import { Button, Card, Accordion, Container, Row, Col } from 'react-bootstrap';
 
-import RegisterAccount from "../../blocks/domain/RegisterAccount";
-import RegisterAsset from "../../blocks/domain/RegisterAsset";
-import Unregister from "../../blocks/domain/Unregister";
-import MintAsset from "../../blocks/asset/MintAsset";
-import MintAccount from "../../blocks/account/MintAccount";
-import Grant from "../../blocks/account/Grant";
-import Transfer from "../../blocks/asset/Transfer";
-import RegisterDomain from "../../blocks/world/RegisterDomain";
-import FindAll from "../../blocks/queries/FindAll";
-import FindBy from "../../blocks/queries/FindBy";
+import RegisterAccount from "../../blocks/components/domain/RegisterAccount";
+import RegisterAsset from "../../blocks/components/domain/RegisterAsset";
+import Unregister from "../../blocks/components/domain/Unregister";
+import MintAsset from "../../blocks/components/asset/MintAsset";
+import MintAccount from "../../blocks/components/account/MintAccount";
+import Grant from "../../blocks/components/account/Grant";
+import Transfer from "../../blocks/components/asset/Transfer";
+import RegisterDomain from "../../blocks/components/world/RegisterDomain";
+import FindAll from "../../blocks/components/queries/FindAll";
+import FindBy from "../../blocks/components/queries/FindBy";
 
-export default class Menu extends Component{
+export default class Menu extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state={
+        this.state = {
             variables: [],
             isWorkingBlock: false
         }
+
+        this.registerdomain = {
+            id: "",
+            component: "registerdomain",
+            name: ""
+        }
+
+        this.registeraccount = {
+            id: "",
+            component: "registeraccount",
+            name: "",
+            key: "",
+            domainName: ""
+        }
+
+        this.registerasset = {
+            id: "",
+            component: "registerasset",
+            name: "",
+            domainName: ""
+        }
+
+        this.unregister = {
+            id: "",
+            component: "unregister",
+            name: ""
+        }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Accordion>
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -36,20 +63,20 @@ export default class Menu extends Component{
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterDomain)}}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.registerdomain) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterDomain isWorkingBlock={false}/>
+                                        <RegisterDomain isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.unregister) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister isWorkingBlock={false}/>
+                                        <Unregister isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -62,33 +89,33 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
                         <Card.Body>
-                        <Container>
+                            <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterAccount)}}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.registeraccount) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAccount isWorkingBlock={false}/>
+                                        <RegisterAccount isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(RegisterAsset)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAsset isWorkingBlock={false}/>
+                                        <RegisterAsset isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(Unregister)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister isWorkingBlock={false}/>
+                                        <Unregister isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -101,23 +128,23 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="2">
                         <Card.Body>
-                        <Container>
+                            <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(MintAccount)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAccount isWorkingBlock={false}/>
+                                        <MintAccount isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(Grant)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <Grant isWorkingBlock={false}/>
+                                        <Grant isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -130,23 +157,23 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="4">
                         <Card.Body>
-                        <Container>
+                            <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(MintAsset)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAsset isWorkingBlock={false}/>
+                                        <MintAsset isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(Transfer)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <Transfer isWorkingBlock={false}/>
+                                        <Transfer isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -159,23 +186,23 @@ export default class Menu extends Component{
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="6">
                         <Card.Body>
-                        <Container>
+                            <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(FindBy)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <FindBy isWorkingBlock={false}/>
+                                        <FindBy isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => {this.props.addWorkingBlock(FindAll)}}>+</Button>
+                                        <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <FindAll isWorkingBlock={false}/>
+                                        <FindAll isWorkingBlock={false} />
                                     </Col>
                                 </Row>
                             </Container>
