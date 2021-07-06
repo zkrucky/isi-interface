@@ -3,5 +3,5 @@ Blueprint-like interface for Iroha Special Instructions
 
 To run from terminal:
 
-cd application
+cd application </br>
 npm start
