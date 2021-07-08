@@ -11,7 +11,11 @@ export default class Unregister extends Component {
             dropdownName: "ACCOUNT"
         }
 
+        this.dropdownArray = [];
+
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.generateDropdownArray = this.generateDropdownArray.bind(this);
+        this.generateDropdownItems = this.generateDropdownItems.bind(this);
     }
 
     render() {
@@ -27,10 +31,8 @@ export default class Unregister extends Component {
                                 {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("DOMAIN") }}>DOMAIN</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNT") }}>ACCOUNT</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ASSET") }}>ASSET</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ROLE") }}>ROLE</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.dropdownArray.map(name => this.generateDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -45,5 +47,15 @@ export default class Unregister extends Component {
 
     setDropdownName(name) {
         this.setState({ dropdownName: name });
+    }
+
+    generateDropdownArray(block){
+        if(block.component.includes("register") && block.name !== "" && !this.dropdownArray.includes(block.name)){
+            this.dropdownArray.push(block.name);
+        }
+    }
+
+    generateDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setDropdownName(name)}}>{name}</DropdownItem>
     }
 }

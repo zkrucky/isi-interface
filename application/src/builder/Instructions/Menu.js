@@ -4,7 +4,7 @@ import { Button, Card, Accordion, Container, Row, Col } from 'react-bootstrap';
 
 import RegisterAccount from "../../blocks/components/domain/RegisterAccount";
 import RegisterAsset from "../../blocks/components/domain/RegisterAsset";
-import Unregister from "../../blocks/components/domain/Unregister";
+import Unregister from "../../blocks/components/world/Unregister";
 import MintAsset from "../../blocks/components/asset/MintAsset";
 import MintAccount from "../../blocks/components/account/MintAccount";
 import Grant from "../../blocks/components/account/Grant";
@@ -12,6 +12,7 @@ import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
 import FindBy from "../../blocks/components/queries/FindBy";
+import { RegDomain, RegAccount, RegAsset, Unreg } from '../../blocks/objects/Blocks';
 
 export default class Menu extends Component {
 
@@ -21,33 +22,6 @@ export default class Menu extends Component {
         this.state = {
             variables: [],
             isWorkingBlock: false
-        }
-
-        this.registerdomain = {
-            id: "",
-            component: "registerdomain",
-            name: ""
-        }
-
-        this.registeraccount = {
-            id: "",
-            component: "registeraccount",
-            name: "",
-            key: "",
-            domainName: ""
-        }
-
-        this.registerasset = {
-            id: "",
-            component: "registerasset",
-            name: "",
-            domainName: ""
-        }
-
-        this.unregister = {
-            id: "",
-            component: "unregister",
-            name: ""
         }
     }
 
@@ -63,20 +37,20 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.registerdomain) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomain(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterDomain isWorkingBlock={false} />
+                                        <RegisterDomain workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.unregister) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new Unreg(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister isWorkingBlock={false} />
+                                        <Unregister workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -92,30 +66,20 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(this.registeraccount) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccount(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAccount isWorkingBlock={false} />
+                                        <RegisterAccount workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAsset(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAsset isWorkingBlock={false} />
-                                    </Col>
-                                </Row>
-                            </Container>
-                            <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
-                                    </Col>
-                                    <Col>
-                                        <Unregister isWorkingBlock={false} />
+                                        <RegisterAsset workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -134,7 +98,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAccount isWorkingBlock={false} />
+                                        <MintAccount workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -144,7 +108,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <Grant isWorkingBlock={false} />
+                                        <Grant workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -163,7 +127,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAsset isWorkingBlock={false} />
+                                        <MintAsset workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -173,7 +137,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <Transfer isWorkingBlock={false} />
+                                        <Transfer workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -192,7 +156,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <FindBy isWorkingBlock={false} />
+                                        <FindBy workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -202,7 +166,7 @@ export default class Menu extends Component {
                                         <Button color="primary">+</Button>
                                     </Col>
                                     <Col>
-                                        <FindAll isWorkingBlock={false} />
+                                        <FindAll workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>

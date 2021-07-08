@@ -7,14 +7,9 @@ export default class RegisterDomain extends Component {
         super(props);
 
         this.state = {
-            dropdown: false,
-            dropdownName: "DOMAIN",
-            domainName: "",
-            peerName: "",
-            roleName: "",
+            domainName: "name"
         }
 
-        this.toggleDropdown = this.toggleDropdown.bind(this);
         this.processName = this.processName.bind(this);
     }
 
@@ -26,36 +21,20 @@ export default class RegisterDomain extends Component {
                         <p className="vertical-center">REGISTER</p>
                     </Col>
                     <Col className="block-component">
-                        <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
-                            <DropdownToggle caret>
-                                {this.state.dropdownName}
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("DOMAIN") }}>DOMAIN</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("PEER") }}>PEER</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ROLE") }}>ROLE</DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
+                        <p className="vertical-center">DOMAIN</p>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="name" onChange={this.processName} />
+                        <Input placeholder={this.state.domainName} onChange={this.processName} />
                     </Col>
                 </Row>
             </Container>
         );
     }
 
-    toggleDropdown() {
-        this.setState({ dropdown: !this.state.dropdown });
-    }
-
-    setDropdownName(name) {
-        this.setState({ dropdownName: name });
-    }
-
     processName(onChangeEvent) {
         const input = onChangeEvent.target.value;
         let name = input;
-        this.setState({ domainName: name });
+        this.props.workingBlocks[this.props.index].name = name;
+        this.setState({domainName: name});
     }
 }

@@ -8,12 +8,16 @@ export default class RegisterAsset extends Component {
 
         this.state = {
             dropdown: false,
-            assetName: "",
-            assetValue: 0
+            dropdownName: "DOMAIN"
         }
+
+        this.dropdownArray = [];
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.processName = this.processName.bind(this);
+        this.generateDropdownArray = this.generateDropdownArray.bind(this);
+        this.generateDropdownItems = this.generateDropdownItems.bind(this);
+        this.setDomainName = this.setDomainName.bind(this);
     }
 
     render() {
@@ -35,10 +39,11 @@ export default class RegisterAsset extends Component {
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                             <DropdownToggle caret>
-                                DOMAIN
+                                {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem>DOMAIN</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.dropdownArray.map(name => this.generateDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -58,7 +63,22 @@ export default class RegisterAsset extends Component {
     processName(onChangeEvent) {
         const input = onChangeEvent.target.value;
         let name = input;
-        this.setState({ assetName: name });
-        console.log(this.state.assetName);
+        this.props.workingBlocks[this.props.index].name = name;
+        console.log(this.props.workingBlocks[this.props.index]);
+    }
+
+    generateDropdownArray(block){
+        if(block.component.includes("domain") && block.name !== "" && !this.dropdownArray.includes(block.name)){
+            this.dropdownArray.push(block.name);
+        }
+    }
+
+    generateDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setDropdownName(name); this.setDomainName(name)}}>{name}</DropdownItem>
+    }
+
+    setDomainName(name){
+        this.props.workingBlocks[this.props.index].domainName = name;
+        console.log(this.props.workingBlocks);
     }
 }

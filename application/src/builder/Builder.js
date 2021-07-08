@@ -16,6 +16,8 @@ export default class Builder extends Component {
         this.addWorkingBlock = this.addWorkingBlock.bind(this);
         this.removeWorkingBlock = this.removeWorkingBlock.bind(this);
         this.clearBlocks = this.clearBlocks.bind(this);
+        this.updateName = this.updateName.bind(this);
+        this.getKey = this.getKey.bind(this);
     }
 
     render() {
@@ -25,12 +27,12 @@ export default class Builder extends Component {
                     <Row>
                         <Col className="instructions">
                             <p className="section-title">INSTRUCTIONS</p>
-                            <Menu addWorkingBlock={this.addWorkingBlock} />
+                            <Menu addWorkingBlock={this.addWorkingBlock} getKey={this.getKey}/>
                         </Col>
 
-                        <Col className="workbench working-blocks" {...provided.droppableProps} ref={provided.innerRef}>
+                        <Col className="workbench">
                             <p className="section-title">WORKBENCH</p>
-                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} />
+                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName}/>
                         </Col>
 
                     </Row>
@@ -59,5 +61,22 @@ export default class Builder extends Component {
 
     clearBlocks() {
         this.setState({ workingBlocks: [] });
+    }
+
+    updateName(name, index){
+        let blocks = this.state.workingBlocks;
+        blocks[index].name = name;
+        this.setState({workingBlocks: blocks});
+    }
+
+    getKey(length) {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        this.currentKey = result;
+        return result;
     }
 }

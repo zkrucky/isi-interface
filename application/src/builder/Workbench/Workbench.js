@@ -19,7 +19,7 @@ export default class Workbench extends Component {
     render() {
         return (
             <>
-                <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} />
+                <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} updateName={this.props.updateName}/>
                 <div className="trash-button">
                     <Button color="" onClick={this.toggleModal}><img src={TrashIcon} /></Button>
                     <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
