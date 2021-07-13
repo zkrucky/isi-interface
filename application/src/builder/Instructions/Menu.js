@@ -37,16 +37,6 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <RegisterDomain workingBlocks={[]} />
-                                    </Col>
-                                </Row>
-                            </Container>
-                            <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new UnregObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
@@ -66,20 +56,10 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAccount workingBlocks={[]} />
-                                    </Col>
-                                </Row>
-                            </Container>
-                            <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <RegisterAsset workingBlocks={[]} />
+                                        <RegisterDomain workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -95,20 +75,20 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAccount workingBlocks={[]} />
+                                        <RegisterAccount workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new TransferObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Grant workingBlocks={[]} />
+                                        <Transfer workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
@@ -124,20 +104,20 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAsset workingBlocks={[]} />
+                                        <RegisterAsset workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new TransferObj(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Transfer workingBlocks={[]} />
+                                        <MintAsset workingBlocks={[]} />
                                     </Col>
                                 </Row>
                             </Container>

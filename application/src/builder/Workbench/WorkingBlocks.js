@@ -6,8 +6,6 @@ import RegisterAccount from "../../blocks/components/domain/RegisterAccount";
 import RegisterAsset from "../../blocks/components/domain/RegisterAsset";
 import Unregister from "../../blocks/components/world/Unregister";
 import MintAsset from "../../blocks/components/asset/MintAsset";
-import MintAccount from "../../blocks/components/account/MintAccount";
-import Grant from "../../blocks/components/account/Grant";
 import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
