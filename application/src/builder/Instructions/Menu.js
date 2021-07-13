@@ -12,7 +12,7 @@ import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
 import FindBy from "../../blocks/components/queries/FindBy";
-import { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj } from '../../blocks/objects/Blocks';
+import { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj, FindAllObj } from '../../blocks/objects/Blocks';
 
 export default class Menu extends Component {
 
@@ -163,7 +163,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindAllObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <FindAll workingBlocks={[]} />

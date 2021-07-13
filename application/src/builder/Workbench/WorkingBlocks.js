@@ -63,6 +63,8 @@ export default class WorkingBlocks extends Component {
                 return <MintAsset index={index} workingBlocks={this.props.workingBlocks}/>
             case 'transfer':
                 return <Transfer index={index} workingBlocks={this.props.workingBlocks}/>
+            case 'findall':
+                return <FindAll index={index} workingBlocks={this.props.workingBlocks}/>
         }
     }
 

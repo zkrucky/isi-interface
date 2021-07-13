@@ -8,7 +8,7 @@ export default class FindAll extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "ROLES"
+            dropdownName: "DOMAINS"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -30,8 +30,6 @@ export default class FindAll extends Component {
                                 {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("ROLES") }}>ROLES</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("PEERS") }}>PEERS</DropdownItem>
                                 <DropdownItem onClick={() => { this.setDropdownName("DOMAINS") }}>DOMAINS</DropdownItem>
                                 <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS") }}>ACCOUNTS</DropdownItem>
                                 <DropdownItem onClick={() => { this.setDropdownName("ASSETS") }}>ASSETS</DropdownItem>
@@ -48,6 +46,8 @@ export default class FindAll extends Component {
     }
 
     setDropdownName(name) {
+        this.props.workingBlocks[this.props.index].variable = name.toLowerCase();
         this.setState({ dropdownName: name });
+        console.log(this.props.workingBlocks);
     }
 }

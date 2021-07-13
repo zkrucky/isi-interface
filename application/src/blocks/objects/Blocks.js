@@ -54,4 +54,12 @@ class TransferObj {
     }
 }
 
-export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj }
+class FindAllObj {
+    constructor(id, component="findall", variable){
+        this.id = id;
+        this.component = component;
+        this.variable = variable;
+    }
+}
+
+export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj, FindAllObj }
