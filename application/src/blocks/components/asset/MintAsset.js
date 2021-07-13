@@ -9,14 +9,27 @@ export default class MintAsset extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
+            assetDropdownName: "ASSET",
             dropdown3: false,
+            accountDropdownName: "ACCOUNT",
             mintOrBurn: "MINT",
             toOrFrom: "TO"
         }
 
+        this.assetDropdownArray = [];
+        this.accountDropdownArray = [];
+
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.toggleSecondDropdown = this.toggleSecondDropdown.bind(this);
         this.toggleThirdDropdown = this.toggleThirdDropdown.bind(this);
+        this.setAccountDropdownName = this.setAccountDropdownName.bind(this);
+        this.setAssetDropdownName = this.setAssetDropdownName.bind(this);
+        this.processValue = this.processValue.bind(this);
+        this.generateDropdownArray = this.generateDropdownArray.bind(this);
+        this.generateAssetDropdownItems = this.generateAssetDropdownItems.bind(this);
+        this.generateAccountDropdownItems = this.generateAccountDropdownItems.bind(this);
+        this.setAssetID = this.setAssetID.bind(this);
+        this.setAccountID = this.setAccountID.bind(this);
     }
 
     render() {
@@ -29,13 +42,13 @@ export default class MintAsset extends Component {
                                 {this.state.mintOrBurn}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("MINT"); this.setToOrFrom("TO") }}>MINT</DropdownItem>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("BURN"); this.setToOrFrom("FROM") }}>BURN</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("MINT"); this.setToOrFrom("TO"); this.setMintOrBurnObj("mint") }}>MINT</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("BURN"); this.setToOrFrom("FROM"); this.setMintOrBurnObj("burn") }}>BURN</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="0" />
+                        <Input placeholder="0" onChange={this.processValue}/>
                     </Col>
                     <Col className="block-component">
                         <p className="vertical-center">{this.state.toOrFrom}</p>
@@ -43,10 +56,11 @@ export default class MintAsset extends Component {
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                             <DropdownToggle caret>
-                                ASSET
+                                {this.state.assetDropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem>ASSET</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.assetDropdownArray.map(name => this.generateAssetDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -56,10 +70,11 @@ export default class MintAsset extends Component {
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
                             <DropdownToggle caret>
-                                ACCOUNT
+                                {this.state.accountDropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem>ACCOUNT</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.accountDropdownArray.map(name => this.generateAccountDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -86,5 +101,52 @@ export default class MintAsset extends Component {
 
     setToOrFrom(toOrFrom) {
         this.setState({ toOrFrom: toOrFrom });
+    }
+
+    setAssetDropdownName(name) {
+        this.setState({assetDropdownName: name});
+    }
+
+    setAccountDropdownName(name) {
+        this.setState({accountDropdownName: name});
+    }
+
+    processValue(onChangeEvent){
+        let value = onChangeEvent.target.value;
+        this.props.workingBlocks[this.props.index].quantity = value;
+        console.log(this.props.workingBlocks);
+    }
+    
+    generateDropdownArray(block){
+        if(block.component === "registerasset" && block.name !== "" && !this.assetDropdownArray.includes(block.name + '#' + block.domainName)){
+            this.assetDropdownArray.push(block.name + '#' + block.domainName);
+        }
+        if(block.component === "registeraccount" && block.name !== "" && !this.accountDropdownArray.includes(block.name + '@' + block.domainName)){
+            this.accountDropdownArray.push(block.name + '@' + block.domainName);
+        }
+        console.log(this.props.workingBlocks);
+        console.log(this.assetDropdownArray);
+        console.log(this.accountDropdownArray);
+    }
+
+    generateAssetDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setAssetDropdownName(name); this.setAssetID(name)}}>{name}</DropdownItem>
+    }
+
+    generateAccountDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setAccountDropdownName(name); this.setAccountID(name)}}>{name}</DropdownItem>
+    }
+
+    setAssetID(name){
+        this.props.workingBlocks[this.props.index].asset_id = name;
+        console.log(this.props.workingBlocks);
+    }
+
+    setAccountID(name){
+        this.props.workingBlocks[this.props.index].account_id = name;
+    }
+
+    setMintOrBurnObj(mintOrBurn){
+        this.props.workingBlocks[this.props.index].mintOrBurn = mintOrBurn;
     }
 }

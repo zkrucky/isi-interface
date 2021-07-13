@@ -12,7 +12,7 @@ import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
 import FindBy from "../../blocks/components/queries/FindBy";
-import { RegDomain, RegAccount, RegAsset, Unreg } from '../../blocks/objects/Blocks';
+import { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj } from '../../blocks/objects/Blocks';
 
 export default class Menu extends Component {
 
@@ -37,7 +37,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomain(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <RegisterDomain workingBlocks={[]} />
@@ -47,7 +47,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new Unreg(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new UnregObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <Unregister workingBlocks={[]} />
@@ -66,7 +66,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccount(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <RegisterAccount workingBlocks={[]} />
@@ -76,7 +76,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAsset(this.props.getKey(5))) }}>+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <RegisterAsset workingBlocks={[]} />
@@ -124,7 +124,7 @@ export default class Menu extends Component {
                             <Container>
                                 <Row>
                                     <Col className="vertical-center" xs="1">
-                                        <Button color="primary">+</Button>
+                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
                                         <MintAsset workingBlocks={[]} />

@@ -1,4 +1,4 @@
-class RegDomain {
+class RegDomainObj {
     constructor(id, component = 'registerdomain', name = '') {
         this.id = id;
         this.component = component;
@@ -6,7 +6,7 @@ class RegDomain {
     }
 }
 
-class RegAccount {
+class RegAccountObj {
     constructor(id, component = 'registeraccount', name = '', key = '', domainName = '') {
         this.id = id;
         this.component = component;
@@ -16,7 +16,7 @@ class RegAccount {
     }
 }
 
-class RegAsset {
+class RegAssetObj {
     constructor(id, component = 'registerasset', name = '', domainName = '') {
         this.id = id;
         this.component = component;
@@ -26,11 +26,22 @@ class RegAsset {
 }
 
 
-class Unreg {
+class UnregObj {
     constructor(id, component = 'unregister') {
         this.id = id;
         this.component = component;
     }
 }
 
-export { RegDomain, RegAccount, RegAsset, Unreg }
+class MintAssetObj {
+    constructor(id, component = 'mintasset', mintOrBurn = '', asset_id = '', account_id = '', quantity = 0){
+        this.id = id;
+        this.component = component;
+        this.mintOrBurn = mintOrBurn;
+        this.asset_id = asset_id;
+        this.account_id = account_id;
+        this.quantity = quantity;
+    }
+}
+
+export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj }

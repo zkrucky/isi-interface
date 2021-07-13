@@ -59,6 +59,8 @@ export default class WorkingBlocks extends Component {
                 return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks}/>
             case 'unregister':
                 return <Unregister index={index} workingBlocks={this.props.workingBlocks}/>
+            case 'mintasset':
+                return <MintAsset index={index} workingBlocks={this.props.workingBlocks}/>
         }
     }
 
