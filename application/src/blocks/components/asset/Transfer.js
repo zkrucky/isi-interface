@@ -103,10 +103,10 @@ export default class Transfer extends Component {
     }
 
     setToAccount(name){
-        this.props.workingBlocks[this.props.index].asset_id_1 = name;
+        this.props.workingBlocks[this.props.index].asset_id_2 = name;
     }
 
     setFromAccount(name){
-        this.props.workingBlocks[this.props.index].asset_id_2 = name;
+        this.props.workingBlocks[this.props.index].asset_id_1 = name;
     }
 }
