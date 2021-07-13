@@ -10,11 +10,12 @@ export default class FindBy extends Component {
             dropdown: false,
             dropdown2: false,
             dropdownName: "DOMAIN",
-            dropdownName2: "ID"
+            dropdownName2: "NAME"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.toggleSecondDropdown = this.toggleSecondDropdown.bind(this);
+        this.processSearchString = this.processSearchString.bind(this);
     }
 
     render() {
@@ -22,12 +23,6 @@ export default class FindBy extends Component {
         switch (this.state.dropdownName) {
             case "DOMAIN":
                 byBlock = <p className="vertical-center">NAME:</p>;
-                break;
-            case "ROLES":
-                byBlock = <p className="vertical-center">ACCOUNTID:</p>;
-                break;
-            case "PERMISSIONTOKENS":
-                byBlock = <p className="vertical-center">ACCOUNTID:</p>
                 break;
             case "ACCOUNTS":
                 byBlock = this.renderAccount();
@@ -48,11 +43,9 @@ export default class FindBy extends Component {
                                 {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("DOMAIN") }}>DOMAIN</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS") }}>ACCOUNTS</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ROLES") }}>ROLES</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("PERMISSIONTOKENS") }}>PERMISSIONTOKENS</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ASSETS") }}>ASSETS</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("DOMAIN"); this.setVariable("domain") }}>DOMAIN</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS"); this.setVariable("account") }}>ACCOUNTS</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("ASSETS"); this.setVariable("asset") }}>ASSETS</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -63,7 +56,7 @@ export default class FindBy extends Component {
                         {byBlock}
                     </Col>
                     <Col className="block-component">
-                        <Input />
+                        <Input onChange={this.processSearchString}/>
                     </Col>
                 </Row>
             </Container>
@@ -94,9 +87,8 @@ export default class FindBy extends Component {
                         {this.state.dropdownName2}
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("ID") }}>ID</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME") }}>NAME</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAINNAME") }}>DOMAINNAME</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME"); this.setSearchCondition("name") }}>NAME</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAIN"); this.setSearchCondition("domain") }}>DOMAIN</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </>
@@ -111,14 +103,27 @@ export default class FindBy extends Component {
                         {this.state.dropdownName2}
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("ID") }}>ID</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME") }}>NAME</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("ACCOUNTID") }}>ACCOUNTID</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("ASSETDEFINITIONID") }}>ASSETDEFINITIONID</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAINNAME") }}>DOMAINNAME</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME"); this.setSearchCondition("name") }}>NAME</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("ACCOUNT"); this.setSearchCondition("account") }}>ACCOUNT</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAIN"); this.setSearchCondition("domain") }}>DOMAIN</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </>
         );
+    }
+
+    processSearchString(onChangeEvent) {
+        const input = onChangeEvent.target.value;
+        let name = input;
+        this.props.workingBlocks[this.props.index].searchString = name;
+        console.log(this.props.workingBlocks);
+    }
+
+    setSearchCondition(condition){
+        this.props.workingBlocks[this.props.index].searchCondition = condition;
+    }
+
+    setVariable(variable){
+        this.props.workingBlocks[this.props.index].variable = variable;
     }
 }

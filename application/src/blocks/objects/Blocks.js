@@ -55,11 +55,21 @@ class TransferObj {
 }
 
 class FindAllObj {
-    constructor(id, component="findall", variable){
+    constructor(id, component="findall", variable = ''){
         this.id = id;
         this.component = component;
         this.variable = variable;
     }
 }
 
-export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj, FindAllObj }
+class FindByObj {
+    constructor(id, component="findby", variable = '', searchCondition = 'name', searchString = ''){
+        this.id = id;
+        this.component = component;
+        this.variable = variable;
+        this.searchCondition = searchCondition;
+        this.searchString = searchString;
+    }
+}
+
+export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj, FindAllObj, FindByObj }

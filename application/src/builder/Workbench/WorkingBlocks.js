@@ -65,6 +65,8 @@ export default class WorkingBlocks extends Component {
                 return <Transfer index={index} workingBlocks={this.props.workingBlocks}/>
             case 'findall':
                 return <FindAll index={index} workingBlocks={this.props.workingBlocks}/>
+            case 'findby':
+                return <FindBy index={index} workingBlocks={this.props.workingBlocks}/>
         }
     }
 
