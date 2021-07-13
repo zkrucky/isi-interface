@@ -4,6 +4,8 @@ import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 import WorkingBlocks from "./WorkingBlocks";
 import TrashIcon from "../../static/images/trash.svg";
+import SaveIcon from "../../static/images/save.svg";
+import LoadIcon from "../../static/images/load.svg";
 
 export default class Workbench extends Component {
     constructor(props) {
@@ -21,6 +23,8 @@ export default class Workbench extends Component {
             <>
                 <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} updateName={this.props.updateName}/>
                 <div className="trash-button">
+                    <Button color=""><img src={SaveIcon}/></Button>
+                    <Button color=""><img src={LoadIcon}/></Button>
                     <Button color="" onClick={this.toggleModal}><img src={TrashIcon} /></Button>
                     <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
                         <ModalBody>

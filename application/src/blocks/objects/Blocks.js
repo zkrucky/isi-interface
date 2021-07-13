@@ -34,7 +34,7 @@ class UnregObj {
 }
 
 class MintAssetObj {
-    constructor(id, component = 'mintasset', mintOrBurn = '', asset_id = '', account_id = '', quantity = 0){
+    constructor(id, component = 'mintasset', mintOrBurn = 'mint', asset_id = '', account_id = '', quantity = 0){
         this.id = id;
         this.component = component;
         this.mintOrBurn = mintOrBurn;
@@ -44,4 +44,14 @@ class MintAssetObj {
     }
 }
 
-export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj }
+class TransferObj {
+    constructor(id, component = "transfer", quantity = 0, asset_id_1 = '', asset_id_2 = ''){
+        this.id = id;
+        this.component = component;
+        this.quantity = quantity;
+        this.asset_id_1 = this.asset_id_1;
+        this.asset_id_2 = this.asset_id_2;
+    }
+}
+
+export { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, TransferObj }

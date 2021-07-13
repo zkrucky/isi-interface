@@ -9,11 +9,15 @@ export default class Transfer extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            dropdownName: "ROLEID"
+            fromDropdownName: "ACCOUNT",
+            toDropdownName: "ACCOUNT"
         }
+
+        this.dropdownArray = [];
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.toggleSecondDropdown = this.toggleSecondDropdown.bind(this);
+        this.processValue = this.processValue.bind(this);
     }
 
     render() {
@@ -24,7 +28,7 @@ export default class Transfer extends Component {
                         <p className="vertical-center">TRANSFER</p>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="0" />
+                        <Input placeholder="0" onChange={this.processValue}/>
                     </Col>
                     <Col className="block-component">
                         <p className="vertical-center">FROM</p>
@@ -32,10 +36,11 @@ export default class Transfer extends Component {
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
                             <DropdownToggle caret>
-                                ACCOUNT
+                                {this.state.fromDropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem>ACCOUNT</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.dropdownArray.map(name => this.generateFromDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -45,10 +50,11 @@ export default class Transfer extends Component {
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
                             <DropdownToggle caret>
-                                ACCOUNT
+                                {this.state.toDropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem>ACCOUNT</DropdownItem>
+                                {this.props.workingBlocks.map(block => this.generateDropdownArray(block))}
+                                {this.dropdownArray.map(name => this.generateToDropdownItems(name))}
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -65,7 +71,42 @@ export default class Transfer extends Component {
         this.setState({ dropdown2: !this.state.dropdown2 });
     }
 
-    setDropdownName(name) {
-        this.setState({ dropdownName: name });
+    setToDropdownName(name) {
+        this.setState({ toDropdownName: name });
+    }
+
+    setFromDropdownName(name) {
+        this.setState({ fromDropdownName: name });
+    }
+
+    processValue(onChangeEvent){
+        let value = onChangeEvent.target.value;
+        this.props.workingBlocks[this.props.index].quantity = value;
+        console.log(this.props.workingBlocks);
+    }
+
+    generateDropdownArray(block){
+        if(block.component === "registeraccount" && block.name !== "" && !this.dropdownArray.includes(block.name + '@' + block.domainName)){
+            this.dropdownArray.push(block.name + '@' + block.domainName);
+        }
+        console.log(this.props.workingBlocks);
+        console.log(this.assetDropdownArray);
+        console.log(this.accountDropdownArray);
+    }
+
+    generateToDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setToDropdownName(name); this.setToAccount(name)}}>{name}</DropdownItem>
+    }
+
+    generateFromDropdownItems(name) {
+        return <DropdownItem onClick={() => {this.setFromDropdownName(name); this.setFromAccount(name)}}>{name}</DropdownItem>
+    }
+
+    setToAccount(name){
+        this.props.workingBlocks[this.props.index].asset_id_1 = name;
+    }
+
+    setFromAccount(name){
+        this.props.workingBlocks[this.props.index].asset_id_2 = name;
     }
 }
