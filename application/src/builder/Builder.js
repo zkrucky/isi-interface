@@ -27,18 +27,11 @@ export default class Builder extends Component {
                     <Row>
                         <Col className="instructions">
                             <p className="section-title">INSTRUCTIONS</p>
-                            <Menu addWorkingBlock={this.addWorkingBlock} getKey={this.getKey}/>
+                            <Menu addWorkingBlock={this.addWorkingBlock} getKey={this.getKey} />
                         </Col>
-
                         <Col className="workbench">
                             <p className="section-title">WORKBENCH</p>
-                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName}/>
-                        </Col>
-
-                    </Row>
-                    <Row>
-                        <Col className="code">
-                            <p className="section-title">CODE</p>
+                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName} />
                         </Col>
                     </Row>
                 </Container>
@@ -63,10 +56,10 @@ export default class Builder extends Component {
         this.setState({ workingBlocks: [] });
     }
 
-    updateName(name, index){
+    updateName(name, index) {
         let blocks = this.state.workingBlocks;
         blocks[index].name = name;
-        this.setState({workingBlocks: blocks});
+        this.setState({ workingBlocks: blocks });
     }
 
     getKey(length) {
