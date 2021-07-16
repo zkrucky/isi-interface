@@ -1,5 +1,5 @@
 import React,  {Component} from 'react';
-import {Button, Input, Modal, ModalBody, ModalFooter, Row, Col} from 'reactstrap';
+import {Button, Input, Modal, ModalBody, ModalFooter} from 'reactstrap';
 import {downloadFile} from '../../utils/fileIO';
 import SaveIcon from "../../static/images/save.svg";
 
