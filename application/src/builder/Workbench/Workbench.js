@@ -27,7 +27,7 @@ export default class Workbench extends Component {
                 <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} updateName={this.props.updateName}/>
                 <div className="trash-button">
                     <SaveModal workingBlocks={this.props.workingBlocks}/>
-                    <LoadModal workingBlocks={this.props.workingBlocks}/>
+                    <LoadModal workingBlocks={this.props.workingBlocks} setBlocks={this.props.setBlocks}/>
                     <Button color="" onClick={this.toggleModal}><img src={TrashIcon} /></Button>
                     <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
                         <ModalBody>

@@ -18,6 +18,7 @@ export default class Builder extends Component {
         this.clearBlocks = this.clearBlocks.bind(this);
         this.updateName = this.updateName.bind(this);
         this.getKey = this.getKey.bind(this);
+        this.setBlocks = this.setBlocks.bind(this);
     }
 
     render() {
@@ -31,7 +32,7 @@ export default class Builder extends Component {
                         </Col>
                         <Col className="workbench">
                             <p className="section-title">WORKBENCH</p>
-                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName} />
+                            <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName} setBlocks={this.setBlocks}/>
                         </Col>
                     </Row>
                 </Container>
@@ -71,5 +72,11 @@ export default class Builder extends Component {
         }
         this.currentKey = result;
         return result;
+    }
+
+    setBlocks(blocks){
+        if(Array.isArray(blocks)){
+            this.setState({workingBlocks: blocks});
+        }
     }
 }

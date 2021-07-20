@@ -45,4 +45,9 @@ export default class LoadModal extends Component {
         }
         reader.readAsText(file);
     }
+
+    createBlocksFromImport(){
+        const blocks = JSON.parse(this.state.fileText);
+        this.props.setBlocks(blocks);
+    }
 }
