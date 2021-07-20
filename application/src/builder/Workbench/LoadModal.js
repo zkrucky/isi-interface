@@ -48,8 +48,8 @@ export default class LoadModal extends Component {
 
     createBlocksFromImport(){
         let blocks = JSON.parse(this.state.fileText);
-        console.log(blocks);
-        this.props.setBlocks(blocks);
+        console.log(blocks.blocks);
+        this.props.setBlocks(blocks.blocks);
         console.log(this.props.workingBlocks);
     }
 }
