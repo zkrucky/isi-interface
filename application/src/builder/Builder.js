@@ -75,8 +75,11 @@ export default class Builder extends Component {
     }
 
     setBlocks(blocks){
+        console.log(blocks);
+        console.log(Array.isArray(blocks));
         if(Array.isArray(blocks)){
             this.setState({workingBlocks: blocks});
         }
+        console.log(this.state.workingBlocks);
     }
 }
