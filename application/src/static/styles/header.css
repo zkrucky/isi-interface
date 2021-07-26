@@ -108,3 +108,18 @@ body
     font-weight: bold;
 }
 
+.working-block
+{
+    padding-left: 15px;
+    float: left;
+}
+
+/*workbench*/
+
+.trash-button
+{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+}
+

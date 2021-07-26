@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Collapse} from "reactstrap";
+import React, { Component } from 'react';
+import { Collapse } from "reactstrap";
 
 import Banner from "./banner/Banner";
 import About from "./banner/About";
@@ -7,7 +7,7 @@ import Builder from "./builder/Builder";
 
 export default class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -17,25 +17,25 @@ export default class App extends Component {
     this.toggleAbout = this.toggleAbout.bind(this);
   }
 
-  render(){
+  render() {
     return (
       <>
-        <Banner toggleAbout={this.toggleAbout}/>
+        <Banner toggleAbout={this.toggleAbout} />
         {this.renderAbout()}
-        <Builder/>
+        <Builder />
       </>
     );
   }
 
   renderAbout() {
-    return(
+    return (
       <Collapse isOpen={this.state.showAbout}>
-        <About closePage={this.toggleAbout}/>
+        <About closePage={this.toggleAbout} />
       </Collapse>
     );
   }
 
-  toggleAbout(){
-    this.setState({showAbout: !this.state.showAbout});
+  toggleAbout() {
+    this.setState({ showAbout: !this.state.showAbout });
   }
 }
