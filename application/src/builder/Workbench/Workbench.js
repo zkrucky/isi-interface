@@ -6,9 +6,7 @@ import WorkingBlocks from "./WorkingBlocks";
 import SaveModal from "./SaveModal";
 import LoadModal from "./LoadModal";
 import TrashIcon from "../../static/images/trash.svg";
-import SaveIcon from "../../static/images/save.svg";
-import LoadIcon from "../../static/images/load.svg";
-
+import Serialize from "./Serialize";
 
 export default class Workbench extends Component {
     constructor(props) {
