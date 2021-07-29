@@ -7,7 +7,7 @@ import Builder from "./builder/Builder";
 
 export default class App extends Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -29,13 +29,13 @@ export default class App extends Component {
 
   renderAbout() {
     return (
-      <Collapse isOpen={this.state.showAbout}>
+      <Collapse isOpen={(this.state as any).showAbout}>
         <About closePage={this.toggleAbout} />
       </Collapse>
     );
   }
 
   toggleAbout() {
-    this.setState({ showAbout: !this.state.showAbout });
+    this.setState({ showAbout: !(this.state as any).showAbout });
   }
 }
