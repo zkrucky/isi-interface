@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 
 export default class Unregister extends Component {
+    
     constructor(props) {
         super(props);
 
@@ -49,13 +50,15 @@ export default class Unregister extends Component {
         this.setState({ dropdownName: name });
     }
 
-    generateDropdownArray(block){
-        if(block.component.includes("register") && block.name !== "" && !this.dropdownArray.includes(block.name)){
-            this.dropdownArray.push(block.name);
+    generateDropdownArray(block) {
+        if (this.props.isWorkingBlock) {
+            if (block.component.includes("register") && block.name !== "" && !this.dropdownArray.includes(block.name)) {
+                this.dropdownArray.push(block.name);
+            }
         }
     }
 
     generateDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setDropdownName(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setDropdownName(name) }}>{name}</DropdownItem>
     }
 }

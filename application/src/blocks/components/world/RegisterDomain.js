@@ -32,9 +32,11 @@ export default class RegisterDomain extends Component {
     }
 
     processName(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let name = input;
-        this.props.workingBlocks[this.props.index].name = name;
-        this.setState({domainName: name});
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let name = input;
+            this.props.workingBlocks[this.props.index].name = name;
+            this.setState({ domainName: name });
+        }
     }
 }

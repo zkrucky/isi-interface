@@ -56,7 +56,7 @@ export default class FindBy extends Component {
                         {byBlock}
                     </Col>
                     <Col className="block-component">
-                        <Input onChange={this.processSearchString}/>
+                        <Input onChange={this.processSearchString} />
                     </Col>
                 </Row>
             </Container>
@@ -113,17 +113,23 @@ export default class FindBy extends Component {
     }
 
     processSearchString(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let name = input;
-        this.props.workingBlocks[this.props.index].searchString = name;
-        console.log(this.props.workingBlocks);
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let name = input;
+            this.props.workingBlocks[this.props.index].searchString = name;
+            console.log(this.props.workingBlocks);
+        }
     }
 
-    setSearchCondition(condition){
-        this.props.workingBlocks[this.props.index].searchCondition = condition;
+    setSearchCondition(condition) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].searchCondition = condition;
+        }
     }
 
-    setVariable(variable){
-        this.props.workingBlocks[this.props.index].variable = variable;
+    setVariable(variable) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].variable = variable;
+        }
     }
 }

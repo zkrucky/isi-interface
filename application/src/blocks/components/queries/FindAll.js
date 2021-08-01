@@ -46,8 +46,10 @@ export default class FindAll extends Component {
     }
 
     setDropdownName(name) {
-        this.props.workingBlocks[this.props.index].variable = name.toLowerCase();
-        this.setState({ dropdownName: name });
-        console.log(this.props.workingBlocks);
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].variable = name.toLowerCase();
+            this.setState({ dropdownName: name });
+            console.log(this.props.workingBlocks);
+        }
     }
 }
