@@ -6,6 +6,7 @@ import {
     CommandService_v1Client as CommandService,
     QueryService_v1Client as QueryService
 } from 'iroha-helpers/lib/proto/endpoint_pb_service'
+import {TxBuilder} from 'iroha-helpers/lib/chain'
 
 const IROHA_ADDRESS = "localhost:50051"
 
