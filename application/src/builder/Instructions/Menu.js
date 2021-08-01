@@ -16,15 +16,6 @@ import { RegDomainObj, RegAccountObj, RegAssetObj, UnregObj, MintAssetObj, Trans
 
 export default class Menu extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            variables: [],
-            isWorkingBlock: false
-        }
-    }
-
     render() {
         return (
             <Accordion>
@@ -40,7 +31,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new UnregObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Unregister workingBlocks={[]} />
+                                        <Unregister workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -59,7 +50,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterDomain workingBlocks={[]} />
+                                        <RegisterDomain workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -78,7 +69,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAccount workingBlocks={[]} />
+                                        <RegisterAccount workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -88,7 +79,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new TransferObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <Transfer workingBlocks={[]} />
+                                        <Transfer workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -107,7 +98,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <RegisterAsset workingBlocks={[]} />
+                                        <RegisterAsset workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -117,7 +108,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <MintAsset workingBlocks={[]} />
+                                        <MintAsset workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -136,7 +127,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindByObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <FindBy workingBlocks={[]} />
+                                        <FindBy workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>
@@ -146,7 +137,7 @@ export default class Menu extends Component {
                                         <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindAllObj(this.props.getKey(5))) }}>+</Button>
                                     </Col>
                                     <Col>
-                                        <FindAll workingBlocks={[]} />
+                                        <FindAll workingBlocks={[]} isWorkingBlock={false}/>
                                     </Col>
                                 </Row>
                             </Container>

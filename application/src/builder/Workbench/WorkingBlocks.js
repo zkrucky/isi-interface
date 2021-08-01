@@ -50,21 +50,21 @@ export default class WorkingBlocks extends Component {
     getBlockComponent(block, index) {
         switch (block.component) {
             case 'registeraccount':
-                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'registerdomain':
-                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'registerasset':
-                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'unregister':
-                return <Unregister index={index} workingBlocks={this.props.workingBlocks}/>
+                return <Unregister index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'mintasset':
-                return <MintAsset index={index} workingBlocks={this.props.workingBlocks}/>
+                return <MintAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'transfer':
-                return <Transfer index={index} workingBlocks={this.props.workingBlocks}/>
+                return <Transfer index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'findall':
-                return <FindAll index={index} workingBlocks={this.props.workingBlocks}/>
+                return <FindAll index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'findby':
-                return <FindBy index={index} workingBlocks={this.props.workingBlocks}/>
+                return <FindBy index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
         }
     }
 
