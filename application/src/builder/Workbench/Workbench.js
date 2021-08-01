@@ -5,9 +5,8 @@ import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import WorkingBlocks from "./WorkingBlocks";
 import SaveModal from "./SaveModal";
 import LoadModal from "./LoadModal";
+import Execute from "./Execute";
 import TrashIcon from "../../static/images/trash.svg";
-import SaveIcon from "../../static/images/save.svg";
-import LoadIcon from "../../static/images/load.svg";
 
 
 export default class Workbench extends Component {
@@ -28,6 +27,7 @@ export default class Workbench extends Component {
                 <div className="trash-button">
                     <SaveModal workingBlocks={this.props.workingBlocks}/>
                     <LoadModal workingBlocks={this.props.workingBlocks} setBlocks={this.props.setBlocks}/>
+                    <Execute workingBlocks={this.props.workingBlocks}/>
                     <Button color="" onClick={this.toggleModal}><img src={TrashIcon} /></Button>
                     <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
                         <ModalBody>
