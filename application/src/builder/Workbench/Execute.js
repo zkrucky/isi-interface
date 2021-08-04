@@ -16,7 +16,7 @@ const commandService = new CommandService(IROHA_ADDRESS)
 const queryService = new QueryService(IROHA_ADDRESS)
 
 export default class Execute extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.transactionArray = [];
     }
@@ -26,9 +26,9 @@ export default class Execute extends Component {
         )
     }
 
-    transactionArrayBuilder(){
-        for(i =0; i < this.props.workingBlocks.length; i++){
-            switch(this.props.workingBlocks[i].component) {
+    transactionArrayBuilder() {
+        for (i = 0; i < this.props.workingBlocks.length; i++) {
+            switch (this.props.workingBlocks[i].component) {
                 case 'registeraccount':
                     this.transactionArray.push(this.createAccountTx(this.props.workingBlocks[i]));
                     break;
@@ -39,52 +39,77 @@ export default class Execute extends Component {
                     this.transactionArray.push(this.createAssetTx(this.props.workingBlocks[i]));
                     break;
                 case 'mintasset':
-                    return <MintAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
-                case 'transfer':
-                    return <Transfer index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                    this.transactionArray.push(this.createMintAssetTx(this.props.workingBlocks[i]));
+                    break;
             }
         }
+        this.batchBuilder;
     }
 
-    batchBuilder(){
+    batchBuilder() {
         new BatchBuilder(
             this.transactionArray
         )
-        .setBatchMeta(0)
-        .sign([adminPriv], 0)
-        .sign([adminPriv], 1)
-        .send
+            .setBatchMeta(0)
+            .sign([adminPriv], 0)
+            .sign([adminPriv], 1)
+            .send(commandService)
+            .then(res => console.log(res))
+            .catch(err => console.error(err))
     }
 
-    createAccountTx(block){
+    createAccountTx(block) {
         const createAccountTx = new TxBuilder();
         createAccountTx.createAccount({
             accountName: block.name,
             domainId: block.domainName,
             publicKey: block.key
         })
-        .addMeta('admin@test', 1)
-        .tx
+            .addMeta('admin@test', 1)
+            .tx
         return createAccountTx;
     }
 
-    createDomainTx(block){
+    createDomainTx(block) {
         const createDomainTx = new TxBuilder();
         createDomainTx.createDomain({
             domainId: block.name,
             defaultRole: "default"
         })
-        .addMeta('admin@test', 1)
-        .tx
+            .addMeta('admin@test', 1)
+            .tx
         return createDomainTx;
     }
 
-    createAssetTx(block){
+    createAssetTx(block) {
         const createAssetTx = new TxBuilder();
         createAssetTx.createAsset({
             assetName: block.name,
             domainId: block.domainName,
             precision: 32
         })
+            .addMeta('admin@test', 1)
+            .tx
+        return createAssetTx;
+    }
+
+    createMintAssetTx(block) {
+        const mintAssetTx = new TxBuilder();
+        if (block.mintOrBurn === "mint") {
+            mintAssetTx.addAssetQuantity({
+                assetId: block.asset_id,
+                amount: block.quantity
+            })
+                .addMeta('admin@test', 1)
+                .tx
+        } else {
+            mintAssetTx.subtractAssetQuantity({
+                assetId: block.asset_id,
+                amount: block.quantity
+            })
+                .addMeta('admin@test', 1)
+                .tx
+        }
+        return mintAssetTx;
     }
 }
