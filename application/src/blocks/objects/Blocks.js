@@ -49,8 +49,8 @@ class TransferObj {
         this.id = id;
         this.component = component;
         this.quantity = quantity;
-        this.asset_id_1 = this.asset_id_1;
-        this.asset_id_2 = this.asset_id_2;
+        this.asset_id_1 = asset_id_1;
+        this.asset_id_2 = asset_id_2;
     }
 }
 
