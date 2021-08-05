@@ -8,7 +8,7 @@ import {
 } from 'iroha-helpers/lib/proto/endpoint_pb_service'
 import { TxBuilder, BatchBuilder } from 'iroha-helpers/lib/chain'
 
-const IROHA_ADDRESS = "localhost:50051"
+const IROHA_ADDRESS = "http://localhost:8081"
 
 const adminPriv = 'f101537e319568c765b2cc89698325604991dca57b9716b58016b253506cab70'
 
@@ -22,12 +22,12 @@ export default class Execute extends Component {
     }
     render() {
         return (
-            <Button color=""><img src={ShareIcon} /></Button>
+            <Button color="" onClick={() => {this.transactionArrayBuilder()}}><img src={ShareIcon} /></Button>
         )
     }
 
     transactionArrayBuilder() {
-        for (i = 0; i < this.props.workingBlocks.length; i++) {
+        for (let i = 0; i < this.props.workingBlocks.length; i++) {
             switch (this.props.workingBlocks[i].component) {
                 case 'registeraccount':
                     this.transactionArray.push(this.createAccountTx(this.props.workingBlocks[i]));
@@ -43,7 +43,7 @@ export default class Execute extends Component {
                     break;
             }
         }
-        this.batchBuilder;
+        this.batchBuilder();
     }
 
     batchBuilder() {
@@ -59,8 +59,8 @@ export default class Execute extends Component {
     }
 
     createAccountTx(block) {
-        const createAccountTx = new TxBuilder();
-        createAccountTx.createAccount({
+        const createAccountTx = new TxBuilder()
+        .createAccount({
             accountName: block.name,
             domainId: block.domainName,
             publicKey: block.key
@@ -71,8 +71,8 @@ export default class Execute extends Component {
     }
 
     createDomainTx(block) {
-        const createDomainTx = new TxBuilder();
-        createDomainTx.createDomain({
+        const createDomainTx = new TxBuilder()
+        .createDomain({
             domainId: block.name,
             defaultRole: "default"
         })
@@ -82,8 +82,8 @@ export default class Execute extends Component {
     }
 
     createAssetTx(block) {
-        const createAssetTx = new TxBuilder();
-        createAssetTx.createAsset({
+        const createAssetTx = new TxBuilder()
+        .createAsset({
             assetName: block.name,
             domainId: block.domainName,
             precision: 32
@@ -94,22 +94,24 @@ export default class Execute extends Component {
     }
 
     createMintAssetTx(block) {
-        const mintAssetTx = new TxBuilder();
         if (block.mintOrBurn === "mint") {
-            mintAssetTx.addAssetQuantity({
+            const mintAssetTx = new TxBuilder()
+            .addAssetQuantity({
                 assetId: block.asset_id,
                 amount: block.quantity
             })
                 .addMeta('admin@test', 1)
                 .tx
+            return mintAssetTx;
         } else {
-            mintAssetTx.subtractAssetQuantity({
+            const burnAssetTx = new TxBuilder()
+            .subtractAssetQuantity({
                 assetId: block.asset_id,
                 amount: block.quantity
             })
                 .addMeta('admin@test', 1)
                 .tx
+            return burnAssetTx;
         }
-        return mintAssetTx;
     }
 }
