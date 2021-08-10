@@ -70,7 +70,7 @@ export default class SaveModal extends Component {
                 break;
             case "bytes":
                 fileText = this.buildByteArray();
-                downloadFile(fileText, this.state.fileName, "text/txt");
+                downloadFile(fileText, this.state.fileName, "text/plain;charset=utf-8");
                 break;
             default:
                 break;
@@ -100,5 +100,6 @@ export default class SaveModal extends Component {
             let code = jsonstring.charCodeAt(i);
             bytes = bytes.concat([code & 0xff, code / 256 >>> 0]);
         }
+        return bytes;
     }
 }
