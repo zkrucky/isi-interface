@@ -41,6 +41,8 @@ export default class Execute extends Component {
                 case 'mintasset':
                     this.transactionArray.push(this.createMintAssetTx(this.props.workingBlocks[i]));
                     break;
+                default:
+                    break;
             }
         }
         this.batchBuilder();

@@ -30,6 +30,8 @@ export default class FindBy extends Component {
             case "ASSETS":
                 byBlock = this.renderAsset();
                 break;
+            default:
+                break;
         }
         return (
             <Container className="block">

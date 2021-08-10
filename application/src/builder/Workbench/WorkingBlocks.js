@@ -65,6 +65,8 @@ export default class WorkingBlocks extends Component {
                 return <FindAll index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
             case 'findby':
                 return <FindBy index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+            default:
+                break;
         }
     }
 
