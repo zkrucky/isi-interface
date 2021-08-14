@@ -97,9 +97,9 @@ export default class SaveModal extends Component {
         let jsonstring = `{\n "blocks": ${JSON.stringify(blocks)}\n}`;
         let bytes = [];
         for (let i = 0; i < jsonstring.length; i++) {
-            let code = jsonstring.charCodeAt(i);
-            bytes = bytes.concat([code & 0xff, code / 256 >>> 0]);
+            bytes.push(jsonstring.charCodeAt(i));
         }
+        console.log(bytes);
         return bytes;
     }
 }
