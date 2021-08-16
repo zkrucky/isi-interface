@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@iroha2/client": "file:iroha2-client-0.1.0.tgz",
+    "@iroha2/crypto": "file:iroha2-crypto-0.1.0.tgz",
+    "@iroha2/data-model": "file:iroha2-data-model-0.1.0.tgz",
     "bootstrap": "^4.6.0",
     "grpc": "^1.24.11",
     "iroha-helpers": "^0.9.3",
