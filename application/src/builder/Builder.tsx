@@ -5,8 +5,15 @@ import { Container, Row, Col } from "reactstrap";
 import Menu from "./Instructions/Menu";
 import Workbench from "./Workbench/Workbench";
 
-export default class Builder extends Component {
-    constructor(props) {
+interface IProps{
+}
+
+interface IState {
+    workingBlocks: any;
+}
+
+export default class Builder extends Component<IProps, IState> {
+    constructor(props: any) {
         super(props);
 
         this.state = {
@@ -24,30 +31,30 @@ export default class Builder extends Component {
     render() {
         return (
             <div className="base">
-                <Container className="builder" fluid={true}>
+                <div className="builder">
                     <Row>
                         <Col className="instructions">
-                            <p className="section-title">INSTRUCTIONS</p>
+                            <p className="section-title">Instructions</p>
                             <Menu addWorkingBlock={this.addWorkingBlock} getKey={this.getKey} />
                         </Col>
                         <Col className="workbench">
-                            <p className="section-title">WORKBENCH</p>
+                            <p className="section-title">Workbench</p>
                             <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName} setBlocks={this.setBlocks}/>
                         </Col>
                     </Row>
-                </Container>
+                </div>
             </div>
         );
     }
 
-    addWorkingBlock(block) {
+    addWorkingBlock(block: any) {
         let blocks = this.state.workingBlocks;
         blocks.push(block);
         this.setState({ workingBlocks: blocks });
         console.log(this.state.workingBlocks);
     }
 
-    removeWorkingBlock(index) {
+    removeWorkingBlock(index: any) {
         let blocks = this.state.workingBlocks;
         blocks.splice(index, 1);
         this.setState({ workingBlocks: blocks });
@@ -57,24 +64,24 @@ export default class Builder extends Component {
         this.setState({ workingBlocks: [] });
     }
 
-    updateName(name, index) {
+    updateName(name: any, index: any) {
         let blocks = this.state.workingBlocks;
         blocks[index].name = name;
         this.setState({ workingBlocks: blocks });
     }
 
-    getKey(length) {
+    getKey(length: any) {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
         for (var i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
-        this.currentKey = result;
+        //this.currentKey = result;
         return result;
     }
 
-    setBlocks(blocks){
+    setBlocks(blocks: any){
         console.log(blocks);
         console.log(Array.isArray(blocks));
         if(Array.isArray(blocks)){
