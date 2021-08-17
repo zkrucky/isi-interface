@@ -8,7 +8,7 @@ export default class RegisterAsset extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "DOMAIN"
+            dropdownName: "domain"
         }
 
         this.dropdownArray = [];
@@ -25,16 +25,16 @@ export default class RegisterAsset extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">REGISTER</p>
+                        <p className="vertical-center">register</p>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">ASSET</p>
+                        <p className="vertical-center">asset</p>
                     </Col>
                     <Col className="block-component">
                         <Input placeholder="name" onChange={this.processName} />
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">TO</p>
+                        <p className="vertical-center">to</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>

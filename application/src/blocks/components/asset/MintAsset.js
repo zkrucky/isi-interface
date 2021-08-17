@@ -9,11 +9,11 @@ export default class MintAsset extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            assetDropdownName: "ASSET",
+            assetDropdownName: "asset",
             dropdown3: false,
-            accountDropdownName: "ACCOUNT",
-            mintOrBurn: "MINT",
-            toOrFrom: "TO"
+            accountDropdownName: "account",
+            mintOrBurn: "mint",
+            toOrFrom: "to"
         }
 
         this.assetDropdownArray = [];
@@ -42,8 +42,8 @@ export default class MintAsset extends Component {
                                 {this.state.mintOrBurn}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("MINT"); this.setToOrFrom("TO"); this.setMintOrBurnObj("mint") }}>MINT</DropdownItem>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("BURN"); this.setToOrFrom("FROM"); this.setMintOrBurnObj("burn") }}>BURN</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("mint"); this.setToOrFrom("to"); this.setMintOrBurnObj("mint") }}>mint</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("burn"); this.setToOrFrom("from"); this.setMintOrBurnObj("burn") }}>burn</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -65,7 +65,7 @@ export default class MintAsset extends Component {
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">IN</p>
+                        <p className="vertical-center">in</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>

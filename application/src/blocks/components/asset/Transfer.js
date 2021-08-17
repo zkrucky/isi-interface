@@ -9,8 +9,8 @@ export default class Transfer extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            fromDropdownName: "ACCOUNT",
-            toDropdownName: "ACCOUNT"
+            fromDropdownName: "account",
+            toDropdownName: "account"
         }
 
         this.dropdownArray = [];
@@ -25,13 +25,13 @@ export default class Transfer extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">TRANSFER</p>
+                        <p className="vertical-center">transfer</p>
                     </Col>
                     <Col className="block-component">
                         <Input placeholder="0" onChange={this.processValue} />
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">FROM</p>
+                        <p className="vertical-center">from</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -45,7 +45,7 @@ export default class Transfer extends Component {
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">TO</p>
+                        <p className="vertical-center">to</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
