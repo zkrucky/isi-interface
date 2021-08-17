@@ -9,7 +9,7 @@ export default class Unregister extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "ACCOUNT"
+            dropdownName: "account"
         }
 
         this.dropdownArray = [];
@@ -24,7 +24,7 @@ export default class Unregister extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">UNREGISTER</p>
+                        <p className="vertical-center">unregister</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>

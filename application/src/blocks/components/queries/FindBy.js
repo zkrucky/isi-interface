@@ -9,8 +9,8 @@ export default class FindBy extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            dropdownName: "DOMAIN",
-            dropdownName2: "NAME"
+            dropdownName: "domain",
+            dropdownName2: "name"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -21,13 +21,13 @@ export default class FindBy extends Component {
     render() {
         let byBlock;
         switch (this.state.dropdownName) {
-            case "DOMAIN":
-                byBlock = <p className="vertical-center">NAME:</p>;
+            case "domain":
+                byBlock = <p className="vertical-center">name:</p>;
                 break;
-            case "ACCOUNTS":
+            case "accounts":
                 byBlock = this.renderAccount();
                 break;
-            case "ASSETS":
+            case "assets":
                 byBlock = this.renderAsset();
                 break;
             default:
@@ -37,7 +37,7 @@ export default class FindBy extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">FIND</p>
+                        <p className="vertical-center">find</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -45,14 +45,14 @@ export default class FindBy extends Component {
                                 {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("DOMAIN"); this.setVariable("domain") }}>DOMAIN</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS"); this.setVariable("account") }}>ACCOUNTS</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ASSETS"); this.setVariable("asset") }}>ASSETS</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("domain"); this.setVariable("domain") }}>domain</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("accounts"); this.setVariable("account") }}>accounts</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("assets"); this.setVariable("asset") }}>assets</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">BY</p>
+                        <p className="vertical-center">by</p>
                     </Col>
                     <Col className="block-component">
                         {byBlock}
@@ -89,8 +89,8 @@ export default class FindBy extends Component {
                         {this.state.dropdownName2}
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME"); this.setSearchCondition("name") }}>NAME</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAIN"); this.setSearchCondition("domain") }}>DOMAIN</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("name"); this.setSearchCondition("name") }}>name</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("domain"); this.setSearchCondition("domain") }}>domain</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </>
@@ -105,9 +105,9 @@ export default class FindBy extends Component {
                         {this.state.dropdownName2}
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("NAME"); this.setSearchCondition("name") }}>NAME</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("ACCOUNT"); this.setSearchCondition("account") }}>ACCOUNT</DropdownItem>
-                        <DropdownItem onClick={() => { this.setSecondDropdownName("DOMAIN"); this.setSearchCondition("domain") }}>DOMAIN</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("name"); this.setSearchCondition("name") }}>NAME</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("account"); this.setSearchCondition("account") }}>ACCOUNT</DropdownItem>
+                        <DropdownItem onClick={() => { this.setSecondDropdownName("domain"); this.setSearchCondition("domain") }}>DOMAIN</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </>
