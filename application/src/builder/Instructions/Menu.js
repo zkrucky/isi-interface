@@ -24,14 +24,16 @@ export default class Menu extends Component {
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new UnregObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <Unregister workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new UnregObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <Unregister workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -43,14 +45,16 @@ export default class Menu extends Component {
                     <Accordion.Collapse eventKey="1">
                         <Card.Body>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <RegisterDomain workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegDomainObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <RegisterDomain workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -62,24 +66,28 @@ export default class Menu extends Component {
                     <Accordion.Collapse eventKey="2">
                         <Card.Body>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <RegisterAccount workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAccountObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <RegisterAccount workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new TransferObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <Transfer workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new TransferObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <Transfer workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -91,24 +99,28 @@ export default class Menu extends Component {
                     <Accordion.Collapse eventKey="4">
                         <Card.Body>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <RegisterAsset workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new RegAssetObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <RegisterAsset workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                             <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <MintAsset workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
+                                <div className="block">
+                                    <Row>
+                                        <Col className="block-button vertical-center" xs="1">
+                                            <Button color="primary" onClick={() => { this.props.addWorkingBlock(new MintAssetObj(this.props.getKey(5))) }}>+</Button>
+                                        </Col>
+                                        <Col>
+                                            <MintAsset workingBlocks={[]} isWorkingBlock={false} />
+                                        </Col>
+                                    </Row>
+                                </div>
                             </Container>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -119,26 +131,34 @@ export default class Menu extends Component {
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="6">
                         <Card.Body>
-                            <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindByObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <FindBy workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
-                            </Container>
-                            <Container>
-                                <Row>
-                                    <Col className="vertical-center" xs="1">
-                                        <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindAllObj(this.props.getKey(5))) }}>+</Button>
-                                    </Col>
-                                    <Col>
-                                        <FindAll workingBlocks={[]} isWorkingBlock={false}/>
-                                    </Col>
-                                </Row>
-                            </Container>
+                            <Row>
+                                <Container>
+                                    <div className="block">
+                                        <Row>
+                                            <Col className="block-button vertical-center" xs="1">
+                                                <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindByObj(this.props.getKey(5))) }}>+</Button>
+                                            </Col>
+                                            <Col>
+                                                <FindBy workingBlocks={[]} isWorkingBlock={false} />
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </Container>
+                            </Row>
+                            <Row>
+                                <Container>
+                                    <div className="block">
+                                        <Row>
+                                            <Col className="block-button vertical-center" xs="1">
+                                                <Button color="primary" onClick={() => { this.props.addWorkingBlock(new FindAllObj(this.props.getKey(5))) }}>+</Button>
+                                            </Col>
+                                            <Col>
+                                                <FindAll workingBlocks={[]} isWorkingBlock={false} />
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </Container>
+                            </Row>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

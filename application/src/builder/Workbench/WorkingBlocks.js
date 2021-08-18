@@ -23,16 +23,20 @@ export default class WorkingBlocks extends Component {
 
     render() {
         return this.props.workingBlocks.map((block, index) =>
-            <Container key={block.id}>
-                <Row>
-                    <Col className="vertical-center" xs="1">
-                        <Button color="danger" onClick={() => { this.props.removeWorkingBlock(index) }}>X</Button>
-                    </Col>
-                    <Col>
-                        {this.getBlockComponent(block, index)}
-                    </Col>
-                </Row>
-            </Container>
+            <Row>
+                <Container key={block.id}>
+                    <div className="block">
+                        <Row>
+                            <Col className="block-button vertical-center" xs="1">
+                                <Button color="danger" onClick={() => { this.props.removeWorkingBlock(index) }}>X</Button>
+                            </Col>
+                            <Col>
+                                {this.getBlockComponent(block, index)}
+                            </Col>
+                        </Row>
+                    </div>
+                </Container>
+            </Row>
         );
     }
 
@@ -50,21 +54,21 @@ export default class WorkingBlocks extends Component {
     getBlockComponent(block, index) {
         switch (block.component) {
             case 'registeraccount':
-                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'registerdomain':
-                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'registerasset':
-                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'unregister':
-                return <Unregister index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <Unregister index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'mintasset':
-                return <MintAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <MintAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'transfer':
-                return <Transfer index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <Transfer index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'findall':
-                return <FindAll index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <FindAll index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'findby':
-                return <FindBy index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true}/>
+                return <FindBy index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             default:
                 break;
         }

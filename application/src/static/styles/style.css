@@ -91,10 +91,8 @@ body
 {
     background-color: #E7ECEE;
     color: #75787B !important;
-    padding: 10px 0;
     margin: 10px 0;
     border-radius: 10px;
-    width: fit-content !important;
     float: left;
 }
 
@@ -106,6 +104,13 @@ body
 .block p
 {
     font-weight: bold;
+}
+
+.block-button
+{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .working-block
