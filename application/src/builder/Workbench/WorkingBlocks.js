@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Container, Button, Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 import RegisterAccount from "../../blocks/components/domain/RegisterAccount";
 import RegisterAsset from "../../blocks/components/domain/RegisterAsset";
@@ -10,6 +11,8 @@ import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
 import FindBy from "../../blocks/components/queries/FindBy";
+
+import XIcon from "../../static/images/x.svg";
 
 export default class WorkingBlocks extends Component {
     constructor(props) {
@@ -28,7 +31,7 @@ export default class WorkingBlocks extends Component {
                     <div className="block">
                         <Row>
                             <Col className="block-button vertical-center" xs="1">
-                                <Button color="danger" onClick={() => { this.props.removeWorkingBlock(index) }}>X</Button>
+                                <Button variant="light" onClick={() => { this.props.removeWorkingBlock(index) }}><img src={XIcon}/></Button>
                             </Col>
                             <Col>
                                 {this.getBlockComponent(block, index)}

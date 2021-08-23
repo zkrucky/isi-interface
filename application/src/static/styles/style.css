@@ -60,6 +60,8 @@ body
     margin-top: 10px;
     font-size: 25px;
     color: gray;
+    display: inline-block;
+    text-align: justify;
 }
 
 .instructions
@@ -70,6 +72,18 @@ body
     border: 2px solid gray;
     box-shadow: 0px 0px 8px rgba(45, 41, 38, 0.2);
     margin-right: 45px;
+}
+
+.card-header
+{
+    cursor: pointer;
+    background-color: #ffffff !important;
+    font-size: 20px;
+}
+
+.card-header img
+{
+    float: right;
 }
 
 .workbench
@@ -108,7 +122,7 @@ body
 
 .block-button
 {
-    margin-right: 10px;
+    margin-right: 25px;
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -121,10 +135,9 @@ body
 
 /*workbench*/
 
-.trash-button
+.button-row
 {
+    display: inline-block;
     position: absolute;
-    right:    0;
-    bottom:   0;
 }
 

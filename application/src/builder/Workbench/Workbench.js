@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter, Row } from 'reactstrap';
 
 import WorkingBlocks from "./WorkingBlocks";
 import SaveModal from "./SaveModal";
@@ -23,10 +23,12 @@ export default class Workbench extends Component {
     render() {
         return (
             <>
-                <div className="trash-button">
-                    <SaveModal workingBlocks={this.props.workingBlocks}/>
-                    <LoadModal workingBlocks={this.props.workingBlocks} setBlocks={this.props.setBlocks}/>
-                    <Execute workingBlocks={this.props.workingBlocks}/>
+            
+                <p className="section-title">Workbench</p>
+                <div className="button-row">
+                    <SaveModal workingBlocks={this.props.workingBlocks} />
+                    <LoadModal workingBlocks={this.props.workingBlocks} setBlocks={this.props.setBlocks} />
+                    <Execute workingBlocks={this.props.workingBlocks} />
                     <Button color="" onClick={this.toggleModal}><img src={TrashIcon} /></Button>
                     <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
                         <ModalBody>
@@ -38,7 +40,7 @@ export default class Workbench extends Component {
                         </ModalFooter>
                     </Modal>
                 </div>
-                <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} updateName={this.props.updateName}/>
+                <WorkingBlocks className="working-blocks" workingBlocks={this.props.workingBlocks} removeWorkingBlock={this.props.removeWorkingBlock} updateName={this.props.updateName} />
             </>
         );
     }

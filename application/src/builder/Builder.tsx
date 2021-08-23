@@ -34,11 +34,9 @@ export default class Builder extends Component<IProps, IState> {
                 <div className="builder">
                     <Row>
                         <Col className="instructions">
-                            <p className="section-title">Instructions</p>
                             <Menu addWorkingBlock={this.addWorkingBlock} getKey={this.getKey} />
                         </Col>
                         <Col className="workbench">
-                            <p className="section-title">Workbench</p>
                             <Workbench workingBlocks={this.state.workingBlocks} removeWorkingBlock={this.removeWorkingBlock} clearBlocks={this.clearBlocks} updateName={this.updateName} setBlocks={this.setBlocks}/>
                         </Col>
                     </Row>
