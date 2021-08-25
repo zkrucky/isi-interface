@@ -8,7 +8,7 @@ export default class FindAll extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "DOMAINS"
+            dropdownName: "domains"
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -19,10 +19,10 @@ export default class FindAll extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">FIND</p>
+                        <p className="vertical-center">find</p>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">ALL</p>
+                        <p className="vertical-center">all</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -30,9 +30,9 @@ export default class FindAll extends Component {
                                 {this.state.dropdownName}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setDropdownName("DOMAINS") }}>DOMAINS</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS") }}>ACCOUNTS</DropdownItem>
-                                <DropdownItem onClick={() => { this.setDropdownName("ASSETS") }}>ASSETS</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("DOMAINS") }}>domains</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("ACCOUNTS") }}>accounts</DropdownItem>
+                                <DropdownItem onClick={() => { this.setDropdownName("ASSETS") }}>assets</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
@@ -46,8 +46,10 @@ export default class FindAll extends Component {
     }
 
     setDropdownName(name) {
-        this.props.workingBlocks[this.props.index].variable = name.toLowerCase();
-        this.setState({ dropdownName: name });
-        console.log(this.props.workingBlocks);
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].variable = name.toLowerCase();
+            this.setState({ dropdownName: name });
+            console.log(this.props.workingBlocks);
+        }
     }
 }

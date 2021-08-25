@@ -8,7 +8,7 @@ export default class RegisterAccount extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "DOMAIN"
+            dropdownName: "domain"
         }
 
         this.dropdownArray = [];
@@ -26,19 +26,19 @@ export default class RegisterAccount extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">REGISTER</p>
+                        <p className="vertical-center">register</p>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">ACCOUNT</p>
+                        <p className="vertical-center">account</p>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="name" onChange={this.processName}/>
+                        <Input placeholder="name" onChange={this.processName} />
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="key" onChange={this.processKey}/>
+                        <Input placeholder="key" onChange={this.processKey} />
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">TO</p>
+                        <p className="vertical-center">to</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -65,31 +65,37 @@ export default class RegisterAccount extends Component {
     }
 
     processName(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let name = input;
-        this.props.workingBlocks[this.props.index].name = name;
-        console.log(this.props.workingBlocks);
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let name = input;
+            this.props.workingBlocks[this.props.index].name = name;
+            console.log(this.props.workingBlocks);
+        }
     }
 
     processKey(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let key = input;
-        this.props.workingBlocks[this.props.index].key = key;
-        console.log(this.props.workingBlocks);
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let key = input;
+            this.props.workingBlocks[this.props.index].key = key;
+            console.log(this.props.workingBlocks);
+        }
     }
 
-    generateDropdownArray(block){
-        if(block.component.includes("domain") && block.name !== "" && !this.dropdownArray.includes(block.name)){
+    generateDropdownArray(block) {
+        if (block.component.includes("domain") && block.name !== "" && !this.dropdownArray.includes(block.name)) {
             this.dropdownArray.push(block.name);
         }
     }
 
     generateDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setDropdownName(name); this.setDomainName(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setDropdownName(name); this.setDomainName(name) }}>{name}</DropdownItem>
     }
 
-    setDomainName(name){
-        this.props.workingBlocks[this.props.index].domainName = name;
-        console.log(this.props.workingBlocks);
+    setDomainName(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].domainName = name;
+            console.log(this.props.workingBlocks);
+        }
     }
 }

@@ -18,10 +18,10 @@ export default class RegisterDomain extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">REGISTER</p>
+                        <p className="vertical-center">register</p>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">DOMAIN</p>
+                        <p className="vertical-center">domain</p>
                     </Col>
                     <Col className="block-component">
                         <Input placeholder={this.state.domainName} onChange={this.processName} />
@@ -32,9 +32,11 @@ export default class RegisterDomain extends Component {
     }
 
     processName(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let name = input;
-        this.props.workingBlocks[this.props.index].name = name;
-        this.setState({domainName: name});
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let name = input;
+            this.props.workingBlocks[this.props.index].name = name;
+            this.setState({ domainName: name });
+        }
     }
 }

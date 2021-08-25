@@ -23,7 +23,7 @@ export default class LoadModal extends Component {
                 <Button color="" onClick={() => {this.toggleModal()}}><img src={LoadIcon}/></Button>
                 <Modal isOpen={this.state.modalToggle} toggle={this.toggleModal}>
                     <ModalBody>
-                        <Input type="file" accept="application/json" onChange={(event) => this.processFileImport(event.target.files[0])}/>
+                        <Input type="file" accept="application/json, .txt" onChange={(event) => this.processFileImport(event.target.files[0])}/>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="" disabled={!this.state.fileText} onClick={this.createBlocksFromImport}>Load</Button>
@@ -47,7 +47,24 @@ export default class LoadModal extends Component {
     }
 
     createBlocksFromImport(){
-        let blocks = JSON.parse(this.state.fileText);
+        let blocks;
+        console.log(this.state.fileType);
+        if(this.state.fileType === "application/json"){
+            blocks = JSON.parse(this.state.fileText);
+        } else if(this.state.fileType === "text/plain"){
+            blocks = JSON.parse(this.byteToString(this.state.fileText));
+        }
         this.props.setBlocks(blocks.blocks);
+    }
+
+    byteToString(byteArrayString){
+        let byteArray = byteArrayString.split(",");
+        let intArray = [];
+        let result = "";
+        for(let i=0; i < byteArray.length; i++){
+            intArray.push(parseInt(byteArray[i]));
+            result += String.fromCharCode(intArray[i]);
+        }
+        return result;
     }
 }

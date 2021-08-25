@@ -8,7 +8,7 @@ export default class RegisterAsset extends Component {
 
         this.state = {
             dropdown: false,
-            dropdownName: "DOMAIN"
+            dropdownName: "domain"
         }
 
         this.dropdownArray = [];
@@ -25,16 +25,16 @@ export default class RegisterAsset extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">REGISTER</p>
+                        <p className="vertical-center">register</p>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">ASSET</p>
+                        <p className="vertical-center">asset</p>
                     </Col>
                     <Col className="block-component">
                         <Input placeholder="name" onChange={this.processName} />
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">TO</p>
+                        <p className="vertical-center">to</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -61,24 +61,28 @@ export default class RegisterAsset extends Component {
     }
 
     processName(onChangeEvent) {
-        const input = onChangeEvent.target.value;
-        let name = input;
-        this.props.workingBlocks[this.props.index].name = name;
-        console.log(this.props.workingBlocks[this.props.index]);
+        if (this.props.isWorkingBlock) {
+            const input = onChangeEvent.target.value;
+            let name = input;
+            this.props.workingBlocks[this.props.index].name = name;
+            console.log(this.props.workingBlocks[this.props.index]);
+        }
     }
 
-    generateDropdownArray(block){
-        if(block.component.includes("domain") && block.name !== "" && !this.dropdownArray.includes(block.name)){
+    generateDropdownArray(block) {
+        if (block.component.includes("domain") && block.name !== "" && !this.dropdownArray.includes(block.name)) {
             this.dropdownArray.push(block.name);
         }
     }
 
     generateDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setDropdownName(name); this.setDomainName(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setDropdownName(name); this.setDomainName(name) }}>{name}</DropdownItem>
     }
 
-    setDomainName(name){
-        this.props.workingBlocks[this.props.index].domainName = name;
-        console.log(this.props.workingBlocks);
+    setDomainName(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].domainName = name;
+            console.log(this.props.workingBlocks);
+        }
     }
 }

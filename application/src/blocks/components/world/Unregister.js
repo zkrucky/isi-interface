@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 
 export default class Unregister extends Component {
+    
     constructor(props) {
         super(props);
 
         this.state = {
             dropdown: false,
-            dropdownName: "ACCOUNT"
+            dropdownName: "account"
         }
 
         this.dropdownArray = [];
@@ -23,7 +24,7 @@ export default class Unregister extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">UNREGISTER</p>
+                        <p className="vertical-center">unregister</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -49,13 +50,15 @@ export default class Unregister extends Component {
         this.setState({ dropdownName: name });
     }
 
-    generateDropdownArray(block){
-        if(block.component.includes("register") && block.name !== "" && !this.dropdownArray.includes(block.name)){
-            this.dropdownArray.push(block.name);
+    generateDropdownArray(block) {
+        if (this.props.isWorkingBlock) {
+            if (block.component.includes("register") && block.name !== "" && !this.dropdownArray.includes(block.name)) {
+                this.dropdownArray.push(block.name);
+            }
         }
     }
 
     generateDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setDropdownName(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setDropdownName(name) }}>{name}</DropdownItem>
     }
 }

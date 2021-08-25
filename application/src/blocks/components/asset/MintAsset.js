@@ -9,11 +9,11 @@ export default class MintAsset extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            assetDropdownName: "ASSET",
+            assetDropdownName: "asset",
             dropdown3: false,
-            accountDropdownName: "ACCOUNT",
-            mintOrBurn: "MINT",
-            toOrFrom: "TO"
+            accountDropdownName: "account",
+            mintOrBurn: "mint",
+            toOrFrom: "to"
         }
 
         this.assetDropdownArray = [];
@@ -42,13 +42,13 @@ export default class MintAsset extends Component {
                                 {this.state.mintOrBurn}
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("MINT"); this.setToOrFrom("TO"); this.setMintOrBurnObj("mint") }}>MINT</DropdownItem>
-                                <DropdownItem onClick={() => { this.setMintOrBurn("BURN"); this.setToOrFrom("FROM"); this.setMintOrBurnObj("burn") }}>BURN</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("mint"); this.setToOrFrom("to"); this.setMintOrBurnObj("mint") }}>mint</DropdownItem>
+                                <DropdownItem onClick={() => { this.setMintOrBurn("burn"); this.setToOrFrom("from"); this.setMintOrBurnObj("burn") }}>burn</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="0" onChange={this.processValue}/>
+                        <Input placeholder="0" onChange={this.processValue} />
                     </Col>
                     <Col className="block-component">
                         <p className="vertical-center">{this.state.toOrFrom}</p>
@@ -65,7 +65,7 @@ export default class MintAsset extends Component {
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">IN</p>
+                        <p className="vertical-center">in</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown3} toggle={this.toggleThirdDropdown}>
@@ -104,49 +104,55 @@ export default class MintAsset extends Component {
     }
 
     setAssetDropdownName(name) {
-        this.setState({assetDropdownName: name});
+        this.setState({ assetDropdownName: name });
     }
 
     setAccountDropdownName(name) {
-        this.setState({accountDropdownName: name});
+        this.setState({ accountDropdownName: name });
     }
 
-    processValue(onChangeEvent){
-        let value = onChangeEvent.target.value;
-        this.props.workingBlocks[this.props.index].quantity = value;
-        console.log(this.props.workingBlocks);
+    processValue(onChangeEvent) {
+        if (this.props.isWorkingBlock) {
+            let value = onChangeEvent.target.value;
+            this.props.workingBlocks[this.props.index].quantity = value;
+            console.log(this.props.workingBlocks);
+        }
     }
-    
-    generateDropdownArray(block){
-        if(block.component === "registerasset" && block.name !== "" && !this.assetDropdownArray.includes(block.name + '#' + block.domainName)){
-            this.assetDropdownArray.push(block.name + '#' + block.domainName);
+
+    generateDropdownArray(block) {
+        if (this.props.isWorkingBlock) {
+            if (block.component === "registerasset" && block.name !== "" && !this.assetDropdownArray.includes(block.name + '#' + block.domainName)) {
+                this.assetDropdownArray.push(block.name + '#' + block.domainName);
+            }
+            if (block.component === "registeraccount" && block.name !== "" && !this.accountDropdownArray.includes(block.name + '@' + block.domainName)) {
+                this.accountDropdownArray.push(block.name + '@' + block.domainName);
+            }
         }
-        if(block.component === "registeraccount" && block.name !== "" && !this.accountDropdownArray.includes(block.name + '@' + block.domainName)){
-            this.accountDropdownArray.push(block.name + '@' + block.domainName);
-        }
-        console.log(this.props.workingBlocks);
-        console.log(this.assetDropdownArray);
-        console.log(this.accountDropdownArray);
     }
 
     generateAssetDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setAssetDropdownName(name); this.setAssetID(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setAssetDropdownName(name); this.setAssetID(name) }}>{name}</DropdownItem>
     }
 
     generateAccountDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setAccountDropdownName(name); this.setAccountID(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setAccountDropdownName(name); this.setAccountID(name) }}>{name}</DropdownItem>
     }
 
-    setAssetID(name){
-        this.props.workingBlocks[this.props.index].asset_id = name;
-        console.log(this.props.workingBlocks);
+    setAssetID(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].asset_id = name;
+        }
     }
 
-    setAccountID(name){
-        this.props.workingBlocks[this.props.index].account_id = name;
+    setAccountID(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].account_id = name;
+        }
     }
 
-    setMintOrBurnObj(mintOrBurn){
-        this.props.workingBlocks[this.props.index].mintOrBurn = mintOrBurn;
+    setMintOrBurnObj(mintOrBurn) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].mintOrBurn = mintOrBurn;
+        }
     }
 }

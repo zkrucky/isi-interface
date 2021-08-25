@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff !important;
+}
+
+.vertical-center
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/*banner*/
+
+.banner
+{
+    background-color: #ffffff !important;
+    height: 100px;
+    box-shadow: 0px 0px 8px rgba(45, 41, 38, 0.2);
+}
+
+.logo
+{
+    height: 100px;
+    width: auto;
+    align-items: left !important;
+    margin-left: 50px;
+}
+
+/*about*/
+
+.about
+{
+    background-color: #ffffff !important;
+    padding-left: 20px;
+}
+
+.about h2
+{
+    margin-top: 60px;
+}
+
+/*builder*/
+
+.base
+{
+    background-color: #ffffff;
+}
+
+.builder
+{
+    margin: 50px 50px;
+}
+
+.section-title
+{
+    margin-top: 10px;
+    font-size: 25px;
+    color: gray;
+    display: inline-block;
+    text-align: justify;
+}
+
+.instructions
+{
+    background-color:#ffffff;
+    padding-bottom: 200px;
+    border-radius: 25px;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 8px rgba(45, 41, 38, 0.2);
+    margin-right: 45px;
+}
+
+.card-header
+{
+    cursor: pointer;
+    background-color: #ffffff !important;
+    font-size: 20px;
+}
+
+.card-header img
+{
+    float: right;
+}
+
+.workbench
+{
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 8px rgba(45, 41, 38, 0.2);
+    display: flex;
+}
+
+.code
+{
+    background-color: #ffffff;
+}
+
+/*blocks*/
+
+.block
+{
+    background-color: #E7ECEE;
+    color: #75787B !important;
+    margin: 10px 0;
+    border-radius: 10px;
+    float: left;
+}
+
+.block-component
+{
+    width: fit-content !important;
+}
+
+.block p
+{
+    font-weight: bold;
+}
+
+.block-button
+{
+    margin-right: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.working-block
+{
+    padding-left: 15px;
+    float: left;
+}
+
+/*workbench*/
+
+.button-row
+{
+    float: right;
+    margin-left: auto;
+    margin-right: 0px;
+}
+

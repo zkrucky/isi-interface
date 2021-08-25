@@ -9,8 +9,8 @@ export default class Transfer extends Component {
         this.state = {
             dropdown: false,
             dropdown2: false,
-            fromDropdownName: "ACCOUNT",
-            toDropdownName: "ACCOUNT"
+            fromDropdownName: "account",
+            toDropdownName: "account"
         }
 
         this.dropdownArray = [];
@@ -25,13 +25,13 @@ export default class Transfer extends Component {
             <Container className="block">
                 <Row>
                     <Col className="block-component">
-                        <p className="vertical-center">TRANSFER</p>
+                        <p className="vertical-center">transfer</p>
                     </Col>
                     <Col className="block-component">
-                        <Input placeholder="0" onChange={this.processValue}/>
+                        <Input placeholder="0" onChange={this.processValue} />
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">FROM</p>
+                        <p className="vertical-center">from</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown} toggle={this.toggleDropdown}>
@@ -45,7 +45,7 @@ export default class Transfer extends Component {
                         </Dropdown>
                     </Col>
                     <Col className="block-component">
-                        <p className="vertical-center">TO</p>
+                        <p className="vertical-center">to</p>
                     </Col>
                     <Col className="block-component">
                         <Dropdown isOpen={this.state.dropdown2} toggle={this.toggleSecondDropdown}>
@@ -79,34 +79,39 @@ export default class Transfer extends Component {
         this.setState({ fromDropdownName: name });
     }
 
-    processValue(onChangeEvent){
-        let value = onChangeEvent.target.value;
-        this.props.workingBlocks[this.props.index].quantity = value;
-        console.log(this.props.workingBlocks);
+    processValue(onChangeEvent) {
+        if (this.props.isWorkingBlock) {
+            let value = onChangeEvent.target.value;
+            this.props.workingBlocks[this.props.index].quantity = value;
+            console.log(this.props.workingBlocks);
+        }
     }
 
-    generateDropdownArray(block){
-        if(block.component === "registeraccount" && block.name !== "" && !this.dropdownArray.includes(block.name + '@' + block.domainName)){
-            this.dropdownArray.push(block.name + '@' + block.domainName);
+    generateDropdownArray(block) {
+        if (this.props.isWorkingBlock) {
+            if (block.component === "registeraccount" && block.name !== "" && !this.dropdownArray.includes(block.name + '@' + block.domainName)) {
+                this.dropdownArray.push(block.name + '@' + block.domainName);
+            }
         }
-        console.log(this.props.workingBlocks);
-        console.log(this.assetDropdownArray);
-        console.log(this.accountDropdownArray);
     }
 
     generateToDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setToDropdownName(name); this.setToAccount(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setToDropdownName(name); this.setToAccount(name) }}>{name}</DropdownItem>
     }
 
     generateFromDropdownItems(name) {
-        return <DropdownItem onClick={() => {this.setFromDropdownName(name); this.setFromAccount(name)}}>{name}</DropdownItem>
+        return <DropdownItem onClick={() => { this.setFromDropdownName(name); this.setFromAccount(name) }}>{name}</DropdownItem>
     }
 
-    setToAccount(name){
-        this.props.workingBlocks[this.props.index].asset_id_2 = name;
+    setToAccount(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].asset_id_2 = name;
+        }
     }
 
-    setFromAccount(name){
-        this.props.workingBlocks[this.props.index].asset_id_1 = name;
+    setFromAccount(name) {
+        if (this.props.isWorkingBlock) {
+            this.props.workingBlocks[this.props.index].asset_id_1 = name;
+        }
     }
 }

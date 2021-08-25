@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Container, Button, Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 import RegisterAccount from "../../blocks/components/domain/RegisterAccount";
 import RegisterAsset from "../../blocks/components/domain/RegisterAsset";
@@ -10,6 +11,8 @@ import Transfer from "../../blocks/components/asset/Transfer";
 import RegisterDomain from "../../blocks/components/world/RegisterDomain";
 import FindAll from "../../blocks/components/queries/FindAll";
 import FindBy from "../../blocks/components/queries/FindBy";
+
+import XIcon from "../../static/images/x.svg";
 
 export default class WorkingBlocks extends Component {
     constructor(props) {
@@ -23,16 +26,20 @@ export default class WorkingBlocks extends Component {
 
     render() {
         return this.props.workingBlocks.map((block, index) =>
-            <Container key={block.id}>
-                <Row>
-                    <Col className="vertical-center" xs="1">
-                        <Button color="danger" onClick={() => { this.props.removeWorkingBlock(index) }}>X</Button>
-                    </Col>
-                    <Col>
-                        {this.getBlockComponent(block, index)}
-                    </Col>
-                </Row>
-            </Container>
+            <Row>
+                <Container key={block.id}>
+                    <div className="block">
+                        <Row>
+                            <Col className="block-button vertical-center" xs="1">
+                                <Button variant="light" onClick={() => { this.props.removeWorkingBlock(index) }}><img src={XIcon}/></Button>
+                            </Col>
+                            <Col>
+                                {this.getBlockComponent(block, index)}
+                            </Col>
+                        </Row>
+                    </div>
+                </Container>
+            </Row>
         );
     }
 
@@ -50,21 +57,23 @@ export default class WorkingBlocks extends Component {
     getBlockComponent(block, index) {
         switch (block.component) {
             case 'registeraccount':
-                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterAccount index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'registerdomain':
-                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterDomain index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'registerasset':
-                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks}/>
+                return <RegisterAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'unregister':
-                return <Unregister index={index} workingBlocks={this.props.workingBlocks}/>
+                return <Unregister index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'mintasset':
-                return <MintAsset index={index} workingBlocks={this.props.workingBlocks}/>
+                return <MintAsset index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'transfer':
-                return <Transfer index={index} workingBlocks={this.props.workingBlocks}/>
+                return <Transfer index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'findall':
-                return <FindAll index={index} workingBlocks={this.props.workingBlocks}/>
+                return <FindAll index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
             case 'findby':
-                return <FindBy index={index} workingBlocks={this.props.workingBlocks}/>
+                return <FindBy index={index} workingBlocks={this.props.workingBlocks} isWorkingBlock={true} />
+            default:
+                break;
         }
     }
 
